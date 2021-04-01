@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		18D96FFE2615B4D9005F0A5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D96FFD2615B4D9005F0A5A /* AppDelegate.swift */; };
-		18D970022615B4D9005F0A5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D970012615B4D9005F0A5A /* ViewController.swift */; };
 		18D970072615B4DF005F0A5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D970062615B4DF005F0A5A /* Assets.xcassets */; };
 		18D9700A2615B4DF005F0A5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D970082615B4DF005F0A5A /* LaunchScreen.storyboard */; };
 		18D970152615B4DF005F0A5A /* MircoBlogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D970142615B4DF005F0A5A /* MircoBlogTests.swift */; };
@@ -35,7 +34,6 @@
 /* Begin PBXFileReference section */
 		18D96FFA2615B4D9005F0A5A /* MircoBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MircoBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D96FFD2615B4D9005F0A5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		18D970012615B4D9005F0A5A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		18D970062615B4DF005F0A5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18D970092615B4DF005F0A5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18D9700B2615B4DF005F0A5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -95,8 +93,8 @@
 		18D96FFC2615B4D9005F0A5A /* MircoBlog */ = {
 			isa = PBXGroup;
 			children = (
+				18D970402615C48C005F0A5A /* Classes */,
 				18D96FFD2615B4D9005F0A5A /* AppDelegate.swift */,
-				18D970012615B4D9005F0A5A /* ViewController.swift */,
 				18D970062615B4DF005F0A5A /* Assets.xcassets */,
 				18D970082615B4DF005F0A5A /* LaunchScreen.storyboard */,
 				18D9700B2615B4DF005F0A5A /* Info.plist */,
@@ -120,6 +118,85 @@
 				18D970212615B4DF005F0A5A /* Info.plist */,
 			);
 			path = MircoBlogUITests;
+			sourceTree = "<group>";
+		};
+		18D970402615C48C005F0A5A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				18D970442615C48C005F0A5A /* View(视图和控制器) */,
+				18D970412615C48C005F0A5A /* ViewModel */,
+				18D970422615C48C005F0A5A /* Tools */,
+				18D970432615C48C005F0A5A /* Model */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		18D970412615C48C005F0A5A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		18D970422615C48C005F0A5A /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		18D970432615C48C005F0A5A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18D970442615C48C005F0A5A /* View(视图和控制器) */ = {
+			isa = PBXGroup;
+			children = (
+				18D970492615C48C005F0A5A /* Main */,
+				18D970452615C48C005F0A5A /* Home */,
+				18D970462615C48C005F0A5A /* Discover */,
+				18D970472615C48C005F0A5A /* Message */,
+				18D970482615C48C005F0A5A /* Profile */,
+			);
+			path = "View(视图和控制器)";
+			sourceTree = "<group>";
+		};
+		18D970452615C48C005F0A5A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		18D970462615C48C005F0A5A /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		18D970472615C48C005F0A5A /* Message */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		18D970482615C48C005F0A5A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		18D970492615C48C005F0A5A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,7 +328,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18D970022615B4D9005F0A5A /* ViewController.swift in Sources */,
 				18D96FFE2615B4D9005F0A5A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
