@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		18D96FFE2615B4D9005F0A5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D96FFD2615B4D9005F0A5A /* AppDelegate.swift */; };
-		18D970002615B4D9005F0A5A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D96FFF2615B4D9005F0A5A /* SceneDelegate.swift */; };
 		18D970022615B4D9005F0A5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D970012615B4D9005F0A5A /* ViewController.swift */; };
-		18D970052615B4D9005F0A5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D970032615B4D9005F0A5A /* Main.storyboard */; };
 		18D970072615B4DF005F0A5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D970062615B4DF005F0A5A /* Assets.xcassets */; };
 		18D9700A2615B4DF005F0A5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D970082615B4DF005F0A5A /* LaunchScreen.storyboard */; };
 		18D970152615B4DF005F0A5A /* MircoBlogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D970142615B4DF005F0A5A /* MircoBlogTests.swift */; };
@@ -37,9 +35,7 @@
 /* Begin PBXFileReference section */
 		18D96FFA2615B4D9005F0A5A /* MircoBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MircoBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D96FFD2615B4D9005F0A5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		18D96FFF2615B4D9005F0A5A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		18D970012615B4D9005F0A5A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		18D970042615B4D9005F0A5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18D970062615B4DF005F0A5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18D970092615B4DF005F0A5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18D9700B2615B4DF005F0A5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,9 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				18D96FFD2615B4D9005F0A5A /* AppDelegate.swift */,
-				18D96FFF2615B4D9005F0A5A /* SceneDelegate.swift */,
 				18D970012615B4D9005F0A5A /* ViewController.swift */,
-				18D970032615B4D9005F0A5A /* Main.storyboard */,
 				18D970062615B4DF005F0A5A /* Assets.xcassets */,
 				18D970082615B4DF005F0A5A /* LaunchScreen.storyboard */,
 				18D9700B2615B4DF005F0A5A /* Info.plist */,
@@ -233,7 +227,6 @@
 			files = (
 				18D9700A2615B4DF005F0A5A /* LaunchScreen.storyboard in Resources */,
 				18D970072615B4DF005F0A5A /* Assets.xcassets in Resources */,
-				18D970052615B4D9005F0A5A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +253,6 @@
 			files = (
 				18D970022615B4D9005F0A5A /* ViewController.swift in Sources */,
 				18D96FFE2615B4D9005F0A5A /* AppDelegate.swift in Sources */,
-				18D970002615B4D9005F0A5A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +288,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		18D970032615B4D9005F0A5A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				18D970042615B4D9005F0A5A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		18D970082615B4DF005F0A5A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -439,6 +423,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 683BP79VXM;
 				INFOPLIST_FILE = MircoBlog/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,6 +443,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 683BP79VXM;
 				INFOPLIST_FILE = MircoBlog/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
