@@ -4,11 +4,23 @@
 //
 //  Created by apple on 2021/4/1.
 //
-
+/**
+ 监听方法放在最上面
+ 私有控件或者属性最下面
+ 函数说明三个斜杠注释
+ */
 import UIKit
 
 class MainViewController: UITabBarController {
-
+    
+    //MARK: - 监听方法
+    //点击撰写按钮方法
+    //如果单纯使用private 运行循环无法正确发送消息，导致崩溃
+    //如果使用@objc修饰保证运行循环能够发送此消息
+    @objc private func clickComposedButton() {
+        print("点我了")
+    }
+    //MARK: - 视图生命周期
     override func viewDidLoad() {
         super.viewDidLoad()
         //仅加载数据，并不显示
@@ -34,7 +46,7 @@ class MainViewController: UITabBarController {
 }
 //MARK: - 设置界面
 extension MainViewController {
-    //设置撰写按钮
+    ///设置撰写按钮
     private func setupComposedButton() {
         tabBar.addSubview(composedButton)
         //2.调整按钮
@@ -42,6 +54,8 @@ extension MainViewController {
         //-1让按钮宽一点，解决手指触摸容错
         let w = tabBar.bounds.width / CGFloat(count) - 1
         composedButton.frame = tabBar.bounds.insetBy(dx: 2 * w, dy: 0)
+        //3添加监听方法
+        composedButton.addTarget(self, action: #selector(clickComposedButton), for: .touchUpInside)
     }
     private func addChildViewControllers() {
         //设置tintColor 图片渲染颜色
