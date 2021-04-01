@@ -12,6 +12,11 @@
 		18D9700A2615B4DF005F0A5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D970082615B4DF005F0A5A /* LaunchScreen.storyboard */; };
 		18D970152615B4DF005F0A5A /* MircoBlogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D970142615B4DF005F0A5A /* MircoBlogTests.swift */; };
 		18D970202615B4DF005F0A5A /* MircoBlogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9701F2615B4DF005F0A5A /* MircoBlogUITests.swift */; };
+		18D9706A2615C5E7005F0A5A /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D970692615C5E7005F0A5A /* HomeTableViewController.swift */; };
+		18D970742615C600005F0A5A /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D970732615C600005F0A5A /* DiscoverTableViewController.swift */; };
+		18D970792615C609005F0A5A /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D970782615C609005F0A5A /* MessageTableViewController.swift */; };
+		18D9707E2615C610005F0A5A /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9707D2615C610005F0A5A /* ProfileTableViewController.swift */; };
+		18D970862615C63E005F0A5A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D970852615C63E005F0A5A /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +48,11 @@
 		18D9701B2615B4DF005F0A5A /* MircoBlogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MircoBlogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D9701F2615B4DF005F0A5A /* MircoBlogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MircoBlogUITests.swift; sourceTree = "<group>"; };
 		18D970212615B4DF005F0A5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18D970692615C5E7005F0A5A /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		18D970732615C600005F0A5A /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
+		18D970782615C609005F0A5A /* MessageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
+		18D9707D2615C610005F0A5A /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		18D970852615C63E005F0A5A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +177,7 @@
 		18D970452615C48C005F0A5A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				18D970692615C5E7005F0A5A /* HomeTableViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -174,6 +185,7 @@
 		18D970462615C48C005F0A5A /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				18D970732615C600005F0A5A /* DiscoverTableViewController.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -181,6 +193,7 @@
 		18D970472615C48C005F0A5A /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				18D970782615C609005F0A5A /* MessageTableViewController.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -188,6 +201,7 @@
 		18D970482615C48C005F0A5A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				18D9707D2615C610005F0A5A /* ProfileTableViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -195,6 +209,7 @@
 		18D970492615C48C005F0A5A /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				18D970852615C63E005F0A5A /* MainViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -328,6 +343,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18D9707E2615C610005F0A5A /* ProfileTableViewController.swift in Sources */,
+				18D9706A2615C5E7005F0A5A /* HomeTableViewController.swift in Sources */,
+				18D970792615C609005F0A5A /* MessageTableViewController.swift in Sources */,
+				18D970862615C63E005F0A5A /* MainViewController.swift in Sources */,
+				18D970742615C600005F0A5A /* DiscoverTableViewController.swift in Sources */,
 				18D96FFE2615B4D9005F0A5A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
