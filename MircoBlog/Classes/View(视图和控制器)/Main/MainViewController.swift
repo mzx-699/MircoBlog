@@ -18,7 +18,7 @@ class MainViewController: UITabBarController {
     //如果单纯使用private 运行循环无法正确发送消息，导致崩溃
     //如果使用@objc修饰保证运行循环能够发送此消息
     @objc private func clickComposedButton() {
-        print("点我了")
+//        print("点我了")
     }
     //MARK: - 视图生命周期
     override func viewDidLoad() {

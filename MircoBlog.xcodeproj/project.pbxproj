@@ -19,6 +19,7 @@
 		18D970862615C63E005F0A5A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D970852615C63E005F0A5A /* MainViewController.swift */; };
 		18D9708C2615E80F005F0A5A /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9708B2615E80E005F0A5A /* UIButton+Extension.swift */; };
 		18D970952615F6F6005F0A5A /* VisitorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D970942615F6F6005F0A5A /* VisitorTableViewController.swift */; };
+		18D9709A2615F909005F0A5A /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D970992615F909005F0A5A /* VisitorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		18D970852615C63E005F0A5A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		18D9708B2615E80E005F0A5A /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		18D970942615F6F6005F0A5A /* VisitorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorTableViewController.swift; sourceTree = "<group>"; };
+		18D970992615F909005F0A5A /* VisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				18D970942615F6F6005F0A5A /* VisitorTableViewController.swift */,
+				18D970992615F909005F0A5A /* VisitorView.swift */,
 			);
 			path = Visitor;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				18D970862615C63E005F0A5A /* MainViewController.swift in Sources */,
 				18D970952615F6F6005F0A5A /* VisitorTableViewController.swift in Sources */,
 				18D970742615C600005F0A5A /* DiscoverTableViewController.swift in Sources */,
+				18D9709A2615F909005F0A5A /* VisitorView.swift in Sources */,
 				18D96FFE2615B4D9005F0A5A /* AppDelegate.swift in Sources */,
 				18D9708C2615E80F005F0A5A /* UIButton+Extension.swift in Sources */,
 			);
