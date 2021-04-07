@@ -1,0 +1,6 @@
+framework module Pods_MircoBlog_MircoBlogUITests {
+  umbrella header "Pods-MircoBlog-MircoBlogUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

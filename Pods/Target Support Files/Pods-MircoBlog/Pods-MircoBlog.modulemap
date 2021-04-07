@@ -1,0 +1,6 @@
+framework module Pods_MircoBlog {
+  umbrella header "Pods-MircoBlog-umbrella.h"
+
+  export *
+  module * { export * }
+}
