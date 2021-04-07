@@ -45,6 +45,7 @@ class MainViewController: UITabBarController {
 
 }
 //MARK: - 设置界面
+//类似oc中的分类，分类中不能定义‘存储性’属性，可以定义readonly的属性，swift中同样如此
 extension MainViewController {
     ///设置撰写按钮
     private func setupComposedButton() {
@@ -57,9 +58,8 @@ extension MainViewController {
         //3添加监听方法
         composedButton.addTarget(self, action: #selector(clickComposedButton), for: .touchUpInside)
     }
+    ///添加所有控制器
     private func addChildViewControllers() {
-        //设置tintColor 图片渲染颜色
-        tabBar.tintColor = UIColor.orange
         
         addChildViewController(vc: HomeTableViewController(), title: "首页", imageName: "tabbar_home")
         addChildViewController(vc: MessageTableViewController(), title: "消息", imageName: "tabbar_message_center")

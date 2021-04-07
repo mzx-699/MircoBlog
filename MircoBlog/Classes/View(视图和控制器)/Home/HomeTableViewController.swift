@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeTableViewController: VisitorTableViewController {
-
+    //调用访客视图didload
     override func viewDidLoad() {
         super.viewDidLoad()
 

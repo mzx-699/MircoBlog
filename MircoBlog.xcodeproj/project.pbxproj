@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E409EC2EF1DDCCA96159EBC /* Pods_MircoBlog_MircoBlogUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF34E8C8B4E645D00C559CF /* Pods_MircoBlog_MircoBlogUITests.framework */; };
+		1879BA52261D46AC0066DA14 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879BA51261D46AC0066DA14 /* UILabel+Extension.swift */; };
+		1879BA57261D48850066DA14 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879BA56261D48850066DA14 /* UIImageView+Extension.swift */; };
+		1879BA5C261D537E0066DA14 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879BA5B261D537E0066DA14 /* Common.swift */; };
 		18D96FFE2615B4D9005F0A5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D96FFD2615B4D9005F0A5A /* AppDelegate.swift */; };
 		18D970072615B4DF005F0A5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D970062615B4DF005F0A5A /* Assets.xcassets */; };
 		18D9700A2615B4DF005F0A5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D970082615B4DF005F0A5A /* LaunchScreen.storyboard */; };
@@ -20,6 +24,8 @@
 		18D9708C2615E80F005F0A5A /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9708B2615E80E005F0A5A /* UIButton+Extension.swift */; };
 		18D970952615F6F6005F0A5A /* VisitorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D970942615F6F6005F0A5A /* VisitorTableViewController.swift */; };
 		18D9709A2615F909005F0A5A /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D970992615F909005F0A5A /* VisitorView.swift */; };
+		9F43C1A5D46D4C276C14AD48 /* Pods_MircoBlogTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1FD9EBD02304DE2930855B /* Pods_MircoBlogTests.framework */; };
+		B4A239E73604F24F989E2C5D /* Pods_MircoBlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA178B41466B733B8FE7E2ED /* Pods_MircoBlog.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A5CD6770D57970085F44E43 /* Pods-MircoBlog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MircoBlog.debug.xcconfig"; path = "Target Support Files/Pods-MircoBlog/Pods-MircoBlog.debug.xcconfig"; sourceTree = "<group>"; };
+		1879BA51261D46AC0066DA14 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		1879BA56261D48850066DA14 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		1879BA5B261D537E0066DA14 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		18D96FFA2615B4D9005F0A5A /* MircoBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MircoBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D96FFD2615B4D9005F0A5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18D970062615B4DF005F0A5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,6 +69,14 @@
 		18D9708B2615E80E005F0A5A /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		18D970942615F6F6005F0A5A /* VisitorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorTableViewController.swift; sourceTree = "<group>"; };
 		18D970992615F909005F0A5A /* VisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
+		1DF34E8C8B4E645D00C559CF /* Pods_MircoBlog_MircoBlogUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MircoBlog_MircoBlogUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FC3BFCFABB9535D966C9059 /* Pods-MircoBlog-MircoBlogUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MircoBlog-MircoBlogUITests.debug.xcconfig"; path = "Target Support Files/Pods-MircoBlog-MircoBlogUITests/Pods-MircoBlog-MircoBlogUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6A291A0790B3C5F8E6D44428 /* Pods-MircoBlogTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MircoBlogTests.release.xcconfig"; path = "Target Support Files/Pods-MircoBlogTests/Pods-MircoBlogTests.release.xcconfig"; sourceTree = "<group>"; };
+		9AC9247CF2CE455D1BC092BC /* Pods-MircoBlog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MircoBlog.release.xcconfig"; path = "Target Support Files/Pods-MircoBlog/Pods-MircoBlog.release.xcconfig"; sourceTree = "<group>"; };
+		DC1FD9EBD02304DE2930855B /* Pods_MircoBlogTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MircoBlogTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2F9D26A4199B9A06535FA84 /* Pods-MircoBlog-MircoBlogUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MircoBlog-MircoBlogUITests.release.xcconfig"; path = "Target Support Files/Pods-MircoBlog-MircoBlogUITests/Pods-MircoBlog-MircoBlogUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EA178B41466B733B8FE7E2ED /* Pods_MircoBlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MircoBlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8399D8011CB5678BF7DDB53 /* Pods-MircoBlogTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MircoBlogTests.debug.xcconfig"; path = "Target Support Files/Pods-MircoBlogTests/Pods-MircoBlogTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4A239E73604F24F989E2C5D /* Pods_MircoBlog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F43C1A5D46D4C276C14AD48 /* Pods_MircoBlogTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E409EC2EF1DDCCA96159EBC /* Pods_MircoBlog_MircoBlogUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +114,8 @@
 				18D970132615B4DF005F0A5A /* MircoBlogTests */,
 				18D9701E2615B4DF005F0A5A /* MircoBlogUITests */,
 				18D96FFB2615B4D9005F0A5A /* Products */,
+				9DCE4CACEBD278FF35629CB0 /* Pods */,
+				FD77E0870895023CE527B36B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				18D9708A2615E7F3005F0A5A /* Extension */,
+				1879BA5B261D537E0066DA14 /* Common.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -226,6 +250,8 @@
 			isa = PBXGroup;
 			children = (
 				18D9708B2615E80E005F0A5A /* UIButton+Extension.swift */,
+				1879BA51261D46AC0066DA14 /* UILabel+Extension.swift */,
+				1879BA56261D48850066DA14 /* UIImageView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -239,6 +265,30 @@
 			path = Visitor;
 			sourceTree = "<group>";
 		};
+		9DCE4CACEBD278FF35629CB0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0A5CD6770D57970085F44E43 /* Pods-MircoBlog.debug.xcconfig */,
+				9AC9247CF2CE455D1BC092BC /* Pods-MircoBlog.release.xcconfig */,
+				4FC3BFCFABB9535D966C9059 /* Pods-MircoBlog-MircoBlogUITests.debug.xcconfig */,
+				E2F9D26A4199B9A06535FA84 /* Pods-MircoBlog-MircoBlogUITests.release.xcconfig */,
+				F8399D8011CB5678BF7DDB53 /* Pods-MircoBlogTests.debug.xcconfig */,
+				6A291A0790B3C5F8E6D44428 /* Pods-MircoBlogTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FD77E0870895023CE527B36B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EA178B41466B733B8FE7E2ED /* Pods_MircoBlog.framework */,
+				1DF34E8C8B4E645D00C559CF /* Pods_MircoBlog_MircoBlogUITests.framework */,
+				DC1FD9EBD02304DE2930855B /* Pods_MircoBlogTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -246,9 +296,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18D970242615B4DF005F0A5A /* Build configuration list for PBXNativeTarget "MircoBlog" */;
 			buildPhases = (
+				46BA0D5375A76FD126601299 /* [CP] Check Pods Manifest.lock */,
 				18D96FF62615B4D9005F0A5A /* Sources */,
 				18D96FF72615B4D9005F0A5A /* Frameworks */,
 				18D96FF82615B4D9005F0A5A /* Resources */,
+				E8A6F9F7BE351B70096390EF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -263,6 +315,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18D970272615B4DF005F0A5A /* Build configuration list for PBXNativeTarget "MircoBlogTests" */;
 			buildPhases = (
+				67C579AA7869A702EB220556 /* [CP] Check Pods Manifest.lock */,
 				18D9700C2615B4DF005F0A5A /* Sources */,
 				18D9700D2615B4DF005F0A5A /* Frameworks */,
 				18D9700E2615B4DF005F0A5A /* Resources */,
@@ -281,9 +334,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18D9702A2615B4DF005F0A5A /* Build configuration list for PBXNativeTarget "MircoBlogUITests" */;
 			buildPhases = (
+				86431AC162829DADDF7ED44B /* [CP] Check Pods Manifest.lock */,
 				18D970172615B4DF005F0A5A /* Sources */,
 				18D970182615B4DF005F0A5A /* Frameworks */,
 				18D970192615B4DF005F0A5A /* Resources */,
+				F80B0EC3AB5C795A17860AF5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -363,6 +418,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		46BA0D5375A76FD126601299 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MircoBlog-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		67C579AA7869A702EB220556 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MircoBlogTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86431AC162829DADDF7ED44B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MircoBlog-MircoBlogUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8A6F9F7BE351B70096390EF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MircoBlog/Pods-MircoBlog-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MircoBlog/Pods-MircoBlog-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MircoBlog/Pods-MircoBlog-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F80B0EC3AB5C795A17860AF5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MircoBlog-MircoBlogUITests/Pods-MircoBlog-MircoBlogUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MircoBlog-MircoBlogUITests/Pods-MircoBlog-MircoBlogUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MircoBlog-MircoBlogUITests/Pods-MircoBlog-MircoBlogUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		18D96FF62615B4D9005F0A5A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -370,10 +528,13 @@
 			files = (
 				18D9707E2615C610005F0A5A /* ProfileTableViewController.swift in Sources */,
 				18D9706A2615C5E7005F0A5A /* HomeTableViewController.swift in Sources */,
+				1879BA52261D46AC0066DA14 /* UILabel+Extension.swift in Sources */,
 				18D970792615C609005F0A5A /* MessageTableViewController.swift in Sources */,
+				1879BA5C261D537E0066DA14 /* Common.swift in Sources */,
 				18D970862615C63E005F0A5A /* MainViewController.swift in Sources */,
 				18D970952615F6F6005F0A5A /* VisitorTableViewController.swift in Sources */,
 				18D970742615C600005F0A5A /* DiscoverTableViewController.swift in Sources */,
+				1879BA57261D48850066DA14 /* UIImageView+Extension.swift in Sources */,
 				18D9709A2615F909005F0A5A /* VisitorView.swift in Sources */,
 				18D96FFE2615B4D9005F0A5A /* AppDelegate.swift in Sources */,
 				18D9708C2615E80F005F0A5A /* UIButton+Extension.swift in Sources */,
@@ -541,6 +702,7 @@
 		};
 		18D970252615B4DF005F0A5A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A5CD6770D57970085F44E43 /* Pods-MircoBlog.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -561,6 +723,7 @@
 		};
 		18D970262615B4DF005F0A5A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AC9247CF2CE455D1BC092BC /* Pods-MircoBlog.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -581,6 +744,7 @@
 		};
 		18D970282615B4DF005F0A5A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8399D8011CB5678BF7DDB53 /* Pods-MircoBlogTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -603,6 +767,7 @@
 		};
 		18D970292615B4DF005F0A5A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A291A0790B3C5F8E6D44428 /* Pods-MircoBlogTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -625,6 +790,7 @@
 		};
 		18D9702B2615B4DF005F0A5A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FC3BFCFABB9535D966C9059 /* Pods-MircoBlog-MircoBlogUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -645,6 +811,7 @@
 		};
 		18D9702C2615B4DF005F0A5A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2F9D26A4199B9A06535FA84 /* Pods-MircoBlog-MircoBlogUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
