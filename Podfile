@@ -16,4 +16,7 @@ target 'MircoBlog' do
     # Pods for testing
   end
   pod 'AFNetworking'
+  pod 'SDWebImage'
+  pod 'SVProgressHUD'
+  pod 'SnapKit'
 end
