@@ -32,7 +32,24 @@ class NetworkTools: AFHTTPSessionManager {
     }()
     
 }
-
+//MARK: - 用户相关方法
+extension NetworkTools {
+    
+    //https://api.weibo.com/2/users/show.json
+    /// 加载用户信息
+    /// - Parameters:
+    ///   - uid: uid
+    ///   - accessToken: accessToken
+    ///   - finished: 完成回调
+    ///   - see: [https://open.weibo.com/wiki/2/users/show](https://open.weibo.com/wiki/2/users/show)
+    func loadUserInfo(uid: String, accessToken: String, finished: @escaping SSRequestCallBack) {
+        let urlString = "https://api.weibo.com/2/users/show.json"
+        let params = ["uid": uid,
+            "access_token": accessToken]
+        request(method: .GET, URLString: urlString, parameters: params, finished: finished)
+        
+    }
+}
 //MARK: - OAuth相关方法
 extension NetworkTools {
     
@@ -53,6 +70,18 @@ extension NetworkTools {
             "code": code,
             "redirect_uri": redirectUrl]
         request(method: .POST, URLString: urlString, parameters: params, finished: finished)
+        //测试返回的数据内容，AFN默认的响应格式是JSON，会直接反序列化
+        //确认数据格式问题
+        //1.设置相应数据格式是二进制
+        //2.发起网络请求
+//        responseSerializer = AFHTTPResponseSerializer()
+//        post(urlString, parameters: params, headers: nil, progress: nil) { (_, result) in
+//            let json = String(data: result as! Data, encoding: .utf8)
+//            print(json)
+//        } failure: { (_, nil) in
+//            print("failure")
+//        }
+
     }
 }
 //MARK: - 封装AFN

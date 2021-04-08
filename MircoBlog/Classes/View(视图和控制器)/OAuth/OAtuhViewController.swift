@@ -95,9 +95,35 @@ extension OAtuhViewController: WKNavigationDelegate {
                  uid = 2709030103;
              }
              */
-            print(result!)
+            //swift中任何anyobjct在使用前，必要转换类型 -> as ?/! 类型
+//            print(result!)
+            let account = UserAccount(dict: result as! Dictionary<String, Any>)
+//            print(account)
+            self.loadUserInfo(account: account)
             
         }
         decisionHandler(.cancel)
+    }
+    
+    private func loadUserInfo(account: UserAccount) {
+        NetworkTools.sharedTools.loadUserInfo(uid: account.uid!, accessToken: account.access_token!) { (result, error) in
+            if error != nil {
+                print("出错了 \(error!)")
+                return
+            }
+            //如果使用if/guard as 统统使用?
+            //以下做了两个判断
+            //1.result 一定有内容
+            //2.一定是字典
+            guard let dict = result as? [String : Any] else {
+                print("格式错误")
+                return
+            }
+            //保存用户信息
+            account.screen_name = dict["screen_name"] as? String
+            account.avatar_large = dict["avatar_large"] as? String
+            
+            print(account)
+        }
     }
 }
