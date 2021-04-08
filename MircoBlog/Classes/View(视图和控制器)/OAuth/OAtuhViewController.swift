@@ -124,6 +124,8 @@ extension OAtuhViewController: WKNavigationDelegate {
             account.avatar_large = dict["avatar_large"] as? String
             
             print(account)
+            //保存对象
+            account.saveUserAccount()
         }
     }
 }
