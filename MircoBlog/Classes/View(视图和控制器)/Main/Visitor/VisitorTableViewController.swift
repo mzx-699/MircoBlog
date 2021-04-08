@@ -49,6 +49,10 @@ extension VisitorTableViewController {
         print("visitorViewDidRegister")
     }
     @objc func visitorViewDidLogin() {
-        print("visitorViewDidLogin")
+        let vc = OAtuhViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        //跳转风格
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true, completion: nil)
     }
 }
