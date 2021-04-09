@@ -36,6 +36,11 @@ class UserAccountViewModel {
         //2.如果没有过期，说明登录有效
         return account?.access_token != nil && !isExpired
     }
+    ///用户头像url
+    var avatarUrl: URL {
+        return URL(string: account?.avatar_large ?? "")!
+    }
+    
     ///计算型属性，类似于有返回值的函数 - 归档保存的路径
     //OC中可以定义只读属性/函数的方式实现
     private var accountPath: String {

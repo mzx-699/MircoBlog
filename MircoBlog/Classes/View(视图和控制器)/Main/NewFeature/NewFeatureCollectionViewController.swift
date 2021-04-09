@@ -110,6 +110,7 @@ private class NewFeatureCell: UICollectionViewCell {
                        usingSpringWithDamping: 0.6, //弹力系数，越小越弹
                        initialSpringVelocity: 10, // 初始速度，模拟重力加速度
                        options: []) { //动画选项
+            //大小还原
             self.startButton.transform = CGAffineTransform.identity
         } completion: { (bool) in
             self.startButton.isUserInteractionEnabled = true

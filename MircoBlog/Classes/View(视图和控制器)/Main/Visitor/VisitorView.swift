@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import SnapKit
-
 
 ///访客视图-处理用户未登陆的访客视图
 class VisitorView: UIView {
