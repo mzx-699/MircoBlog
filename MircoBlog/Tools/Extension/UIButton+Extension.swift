@@ -27,5 +27,8 @@ extension UIButton {
         setTitle(title, for: .normal)
         setTitleColor(color, for: .normal)
         setBackgroundImage(UIImage(named: imageName), for: .normal)
+        setBackgroundImage(UIImage(named: imageName + "_highlighted"), for: .highlighted)
+        sizeToFit()
     }
+    
 }

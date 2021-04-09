@@ -15,6 +15,7 @@
 		1879BBCA261DB4250066DA14 /* OAtuhViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879BBC9261DB4250066DA14 /* OAtuhViewController.swift */; };
 		1879BC14261EE9CC0066DA14 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879BC13261EE9CC0066DA14 /* UserAccount.swift */; };
 		1879BC1F261F26090066DA14 /* UserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879BC1E261F26090066DA14 /* UserAccountViewModel.swift */; };
+		1879BC73262026630066DA14 /* NewFeatureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879BC72262026620066DA14 /* NewFeatureCollectionViewController.swift */; };
 		18D96FFE2615B4D9005F0A5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D96FFD2615B4D9005F0A5A /* AppDelegate.swift */; };
 		18D970072615B4DF005F0A5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D970062615B4DF005F0A5A /* Assets.xcassets */; };
 		18D9700A2615B4DF005F0A5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D970082615B4DF005F0A5A /* LaunchScreen.storyboard */; };
@@ -58,6 +59,7 @@
 		1879BBC9261DB4250066DA14 /* OAtuhViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAtuhViewController.swift; sourceTree = "<group>"; };
 		1879BC13261EE9CC0066DA14 /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		1879BC1E261F26090066DA14 /* UserAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountViewModel.swift; sourceTree = "<group>"; };
+		1879BC72262026620066DA14 /* NewFeatureCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureCollectionViewController.swift; sourceTree = "<group>"; };
 		18D96FFA2615B4D9005F0A5A /* MircoBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MircoBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D96FFD2615B4D9005F0A5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18D970062615B4DF005F0A5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,6 +123,14 @@
 				1879BBC9261DB4250066DA14 /* OAtuhViewController.swift */,
 			);
 			path = OAuth;
+			sourceTree = "<group>";
+		};
+		1879BC71262025AB0066DA14 /* NewFeature */ = {
+			isa = PBXGroup;
+			children = (
+				1879BC72262026620066DA14 /* NewFeatureCollectionViewController.swift */,
+			);
+			path = NewFeature;
 			sourceTree = "<group>";
 		};
 		18D96FF12615B4D9005F0A5A = {
@@ -260,6 +270,7 @@
 		18D970492615C48C005F0A5A /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				1879BC71262025AB0066DA14 /* NewFeature */,
 				18D970852615C63E005F0A5A /* MainViewController.swift */,
 				18D970932615F6D4005F0A5A /* Visitor */,
 			);
@@ -561,6 +572,7 @@
 				1879BC1F261F26090066DA14 /* UserAccountViewModel.swift in Sources */,
 				18D9708C2615E80F005F0A5A /* UIButton+Extension.swift in Sources */,
 				1879BC14261EE9CC0066DA14 /* UserAccount.swift in Sources */,
+				1879BC73262026630066DA14 /* NewFeatureCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

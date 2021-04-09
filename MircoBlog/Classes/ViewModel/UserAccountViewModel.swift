@@ -18,6 +18,18 @@ class UserAccountViewModel {
     
     ///用户模型
     var account: UserAccount?
+    
+    //外部调用方不需要关心token的值
+    ///返回有效的token
+    var accessToken: String? {
+        //如果没有过期，返回account中的token
+        if !isExpired {
+            return account?.access_token
+        }
+        //如果过期返回nil
+        return nil
+    }
+    
     ///用户登录标记
     var userLogon: Bool {
         //1.如果token有值，说明登录成功
@@ -58,8 +70,8 @@ class UserAccountViewModel {
             account = nil
         }
 //        print(accountPath)
-        print("读取")
-        print(account ?? "")
+//        print("读取")
+//        print(account ?? "")
         
     }
 }
@@ -110,7 +122,7 @@ extension UserAccountViewModel {
     /// 加载用户信息
     /// - Parameter account: 用户账户对象
     private func loadUserInfo(account: UserAccount, finished: @escaping (_ isSuccessed: Bool)->()) {
-        NetworkTools.sharedTools.loadUserInfo(uid: account.uid!, accessToken: account.access_token!) { (result, error) in
+        NetworkTools.sharedTools.loadUserInfo(uid: account.uid!) { (result, error) in
             if error != nil {
                 print("出错了 \(error!)")
                 finished(false)

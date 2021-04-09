@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        print(UserAccountViewModel.sharedUserAccount.account)
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
-        window?.rootViewController = MainViewController()
+        window?.rootViewController = NewFeatureCollectionViewController()
         window?.makeKeyAndVisible()
         return true
     }

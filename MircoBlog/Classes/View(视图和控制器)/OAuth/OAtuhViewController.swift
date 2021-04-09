@@ -84,7 +84,7 @@ extension OAtuhViewController: WKNavigationDelegate {
         UserAccountViewModel.sharedUserAccount.loadAccessToken(code: code) { (isSuccessed) in
             if isSuccessed {
                 print("成功了")
-//                print(UserAccountViewModel.sharedUserAccount.account!)
+                print(UserAccountViewModel.sharedUserAccount.account!)
             } else{
                 print("失败了")
             }

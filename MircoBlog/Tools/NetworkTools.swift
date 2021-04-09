@@ -31,6 +31,16 @@ class NetworkTools: AFHTTPSessionManager {
         return tools
     }()
     
+    //返回token字典
+    private var tokenDict: [String: Any]? {
+        
+        //判断token是否有效
+        if let token = UserAccountViewModel.sharedUserAccount.accessToken {
+            return ["access_token" : token]
+        }
+        return nil
+    }
+    
 }
 //MARK: - 用户相关方法
 extension NetworkTools {
@@ -42,10 +52,16 @@ extension NetworkTools {
     ///   - accessToken: accessToken
     ///   - finished: 完成回调
     ///   - see: [https://open.weibo.com/wiki/2/users/show](https://open.weibo.com/wiki/2/users/show)
-    func loadUserInfo(uid: String, accessToken: String, finished: @escaping SSRequestCallBack) {
+    func loadUserInfo(uid: String, finished: @escaping SSRequestCallBack) {
+        //1.获取token字典
+        guard var params = tokenDict else {
+            //如果字典为nil，通知调用方，token无效
+            
+            finished(nil, NSError(domain: "mzx.error", code: -1001, userInfo: ["message" : "token为空"]))
+            return
+        }
         let urlString = "https://api.weibo.com/2/users/show.json"
-        let params = ["uid": uid,
-            "access_token": accessToken]
+        params["uid"] = uid
         request(method: .GET, URLString: urlString, parameters: params, finished: finished)
         
     }
