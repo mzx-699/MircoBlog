@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setupAppearance()
         //测试归档
-        print(UserAccountViewModel())
+//        print(UserAccountViewModel.sharedUserAccount.account)
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
         window?.rootViewController = MainViewController()

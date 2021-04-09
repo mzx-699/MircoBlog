@@ -49,19 +49,6 @@ class UserAccount: NSObject, NSCoding, NSSecureCoding {
         let keys = ["access_token", "expires_in", "expiresDate", "uid", "screen_name", "avatar_large"]
         return dictionaryWithValues(forKeys: keys).description
     }
-    //MARK: - 保存当前对象
-    func saveUserAccount() {
-        //1.保存路径
-        var path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!
-        //单纯的as在swift中只有三个地方要用
-        path = path.appending("/account.plist")
-        let data = try! NSKeyedArchiver.archivedData(withRootObject: self, requiringSecureCoding: true)
-        //实际开发中，一定要去确认文件保存了
-//        print(path)
-//        print(self)
-        //只能存在data文件中
-        try! data.write(to: URL(fileURLWithPath: path))
-    }
     
     //MARK: - ‘键值’归档和解档
     

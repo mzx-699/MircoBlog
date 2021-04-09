@@ -15,6 +15,7 @@ class VisitorTableViewController: UITableViewController {
      2.访客视图 如果用懒加载，访客视图始终都会被创建出来
      */
     private var userLogon = false
+//    private var userLogon = UserAccountViewModel.sharedUserAccount.userLogon
     //访客视图
     var visitorView: VisitorView?
     override func loadView() {
@@ -56,3 +57,4 @@ extension VisitorTableViewController {
         present(nav, animated: true, completion: nil)
     }
 }
+
