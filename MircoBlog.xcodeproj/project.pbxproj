@@ -17,6 +17,13 @@
 		1879BC1F261F26090066DA14 /* UserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879BC1E261F26090066DA14 /* UserAccountViewModel.swift */; };
 		1879BC73262026630066DA14 /* NewFeatureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879BC72262026620066DA14 /* NewFeatureCollectionViewController.swift */; };
 		1879BC7826204EC90066DA14 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879BC7726204EC90066DA14 /* WelcomeViewController.swift */; };
+		1879BC89262159FF0066DA14 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879BC88262159FF0066DA14 /* Status.swift */; };
+		1879BC8E262182800066DA14 /* StatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879BC8D262182800066DA14 /* StatusListViewModel.swift */; };
+		1879BC93262187A70066DA14 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879BC92262187A60066DA14 /* User.swift */; };
+		1879BC9826218DBC0066DA14 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879BC9726218DBC0066DA14 /* StatusViewModel.swift */; };
+		1879BC9E2621901B0066DA14 /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879BC9D2621901B0066DA14 /* StatusTableViewCell.swift */; };
+		1879BCA62621904A0066DA14 /* StatusTableViewCellTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879BCA52621904A0066DA14 /* StatusTableViewCellTopView.swift */; };
+		1879BCAB262190760066DA14 /* StatusTableViewCellBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879BCAA262190760066DA14 /* StatusTableViewCellBottomView.swift */; };
 		18D96FFE2615B4D9005F0A5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D96FFD2615B4D9005F0A5A /* AppDelegate.swift */; };
 		18D970072615B4DF005F0A5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D970062615B4DF005F0A5A /* Assets.xcassets */; };
 		18D9700A2615B4DF005F0A5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D970082615B4DF005F0A5A /* LaunchScreen.storyboard */; };
@@ -62,6 +69,13 @@
 		1879BC1E261F26090066DA14 /* UserAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountViewModel.swift; sourceTree = "<group>"; };
 		1879BC72262026620066DA14 /* NewFeatureCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureCollectionViewController.swift; sourceTree = "<group>"; };
 		1879BC7726204EC90066DA14 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		1879BC88262159FF0066DA14 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		1879BC8D262182800066DA14 /* StatusListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusListViewModel.swift; sourceTree = "<group>"; };
+		1879BC92262187A60066DA14 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1879BC9726218DBC0066DA14 /* StatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
+		1879BC9D2621901B0066DA14 /* StatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTableViewCell.swift; sourceTree = "<group>"; };
+		1879BCA52621904A0066DA14 /* StatusTableViewCellTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTableViewCellTopView.swift; sourceTree = "<group>"; };
+		1879BCAA262190760066DA14 /* StatusTableViewCellBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTableViewCellBottomView.swift; sourceTree = "<group>"; };
 		18D96FFA2615B4D9005F0A5A /* MircoBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MircoBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D96FFD2615B4D9005F0A5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18D970062615B4DF005F0A5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -136,6 +150,16 @@
 			path = NewFeature;
 			sourceTree = "<group>";
 		};
+		1879BC9C26218FF80066DA14 /* StatusCell */ = {
+			isa = PBXGroup;
+			children = (
+				1879BC9D2621901B0066DA14 /* StatusTableViewCell.swift */,
+				1879BCA52621904A0066DA14 /* StatusTableViewCellTopView.swift */,
+				1879BCAA262190760066DA14 /* StatusTableViewCellBottomView.swift */,
+			);
+			path = StatusCell;
+			sourceTree = "<group>";
+		};
 		18D96FF12615B4D9005F0A5A = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +227,8 @@
 			isa = PBXGroup;
 			children = (
 				1879BC1E261F26090066DA14 /* UserAccountViewModel.swift */,
+				1879BC8D262182800066DA14 /* StatusListViewModel.swift */,
+				1879BC9726218DBC0066DA14 /* StatusViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -221,6 +247,8 @@
 			isa = PBXGroup;
 			children = (
 				1879BC13261EE9CC0066DA14 /* UserAccount.swift */,
+				1879BC88262159FF0066DA14 /* Status.swift */,
+				1879BC92262187A60066DA14 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -241,6 +269,7 @@
 		18D970452615C48C005F0A5A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				1879BC9C26218FF80066DA14 /* StatusCell */,
 				18D970692615C5E7005F0A5A /* HomeTableViewController.swift */,
 			);
 			path = Home;
@@ -560,6 +589,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18D9707E2615C610005F0A5A /* ProfileTableViewController.swift in Sources */,
+				1879BCAB262190760066DA14 /* StatusTableViewCellBottomView.swift in Sources */,
 				18D9706A2615C5E7005F0A5A /* HomeTableViewController.swift in Sources */,
 				1879BBCA261DB4250066DA14 /* OAtuhViewController.swift in Sources */,
 				1879BA52261D46AC0066DA14 /* UILabel+Extension.swift in Sources */,
@@ -567,16 +597,22 @@
 				1879BA5C261D537E0066DA14 /* Common.swift in Sources */,
 				18D970862615C63E005F0A5A /* MainViewController.swift in Sources */,
 				18D970952615F6F6005F0A5A /* VisitorTableViewController.swift in Sources */,
+				1879BC9E2621901B0066DA14 /* StatusTableViewCell.swift in Sources */,
+				1879BC8E262182800066DA14 /* StatusListViewModel.swift in Sources */,
 				18D970742615C600005F0A5A /* DiscoverTableViewController.swift in Sources */,
 				1879BC7826204EC90066DA14 /* WelcomeViewController.swift in Sources */,
 				1879BA57261D48850066DA14 /* UIImageView+Extension.swift in Sources */,
 				18D9709A2615F909005F0A5A /* VisitorView.swift in Sources */,
 				18D96FFE2615B4D9005F0A5A /* AppDelegate.swift in Sources */,
 				1879BBC0261DB2EB0066DA14 /* NetworkTools.swift in Sources */,
+				1879BCA62621904A0066DA14 /* StatusTableViewCellTopView.swift in Sources */,
 				1879BC1F261F26090066DA14 /* UserAccountViewModel.swift in Sources */,
 				18D9708C2615E80F005F0A5A /* UIButton+Extension.swift in Sources */,
 				1879BC14261EE9CC0066DA14 /* UserAccount.swift in Sources */,
+				1879BC9826218DBC0066DA14 /* StatusViewModel.swift in Sources */,
+				1879BC89262159FF0066DA14 /* Status.swift in Sources */,
 				1879BC73262026630066DA14 /* NewFeatureCollectionViewController.swift in Sources */,
+				1879BC93262187A70066DA14 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

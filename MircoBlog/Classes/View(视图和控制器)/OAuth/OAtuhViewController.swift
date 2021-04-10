@@ -96,10 +96,10 @@ extension OAtuhViewController: WKNavigationDelegate {
             //不会立即将控制器销毁
             //通过尾随闭包，发送之后之后才销毁控制器
             self.dismiss(animated: false) {
-                
+                //停止指示器
+                SVProgressHUD.dismiss()
                 //通知中心是同步的，一旦发送通知，会执行监听方法，执行结束后，才执行后续代码
                 NotificationCenter.default.post(name: NSNotification.Name(WBSwitchRootViewControllerNotification), object: "welcome")
-            
             }
 //                print("成功了")
 //                print(UserAccountViewModel.sharedUserAccount.account!)

@@ -36,11 +36,34 @@ class NetworkTools: AFHTTPSessionManager {
         
         //判断token是否有效
         if let token = UserAccountViewModel.sharedUserAccount.accessToken {
+//            print(token)
+//            print(UserAccountViewModel.sharedUserAccount.account?.uid)
             return ["access_token" : token]
         }
         return nil
     }
     
+}
+//MARK: - 微博数据相关方法
+extension NetworkTools {
+    
+    /// 加载微博数据
+    /// - Parameter finished: 完成回调
+    /// - see: [https://open.weibo.com/wiki/2/statuses/home_timeline](https://open.weibo.com/wiki/2/statuses/home_timeline)
+    func loadStatus(finished: @escaping SSRequestCallBack) {
+        //1.获取token字典
+        guard let params = tokenDict else {
+            //如果字典为nil，通知调用方，token无效
+            
+            finished(nil, NSError(domain: "mzx.error", code: -1001, userInfo: ["message" : "token为空"]))
+            return
+        }
+        // 准备网络参数
+        let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
+        
+        //发起网络请求
+        request(method: .GET, URLString: urlString, parameters: params, finished: finished)
+    }
 }
 //MARK: - 用户相关方法
 extension NetworkTools {
