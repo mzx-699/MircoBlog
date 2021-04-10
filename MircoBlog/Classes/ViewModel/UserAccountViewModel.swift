@@ -70,7 +70,7 @@ class UserAccountViewModel {
         account = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(Data(contentsOf: URL(fileURLWithPath: accountPath))) as? UserAccount
         //判断token是否过期
         if isExpired {
-            print("已经过期")
+//            print("已经过期")
             //清空解档数据
             account = nil
         }

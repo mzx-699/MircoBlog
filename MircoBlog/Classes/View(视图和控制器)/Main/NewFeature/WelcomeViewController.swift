@@ -49,7 +49,9 @@ class WelcomeViewController: UIViewController {
             UIView.animate(withDuration: 0.8) {
                 self.welcomeLabel.alpha = 1
             } completion: { (_) in
-                
+                //发送通知
+                NotificationCenter.default.post(name: NSNotification.Name(WBSwitchRootViewControllerNotification), object: nil)
+//                print("发送通知")
             }
 
         }
