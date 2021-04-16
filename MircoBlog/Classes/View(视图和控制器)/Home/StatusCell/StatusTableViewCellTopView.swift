@@ -60,7 +60,12 @@ class StatusTableViewCellTopView: UIView {
 extension StatusTableViewCellTopView {
     
     private func setupUI() {
-        backgroundColor = UIColor(white: 0.95, alpha: 1.9)
+        backgroundColor = UIColor.white
+        //添加分隔视图
+        let sepView = UIView()
+        sepView.backgroundColor = UIColor.lightGray
+        addSubview(sepView)
+        
         //添加控件
         addSubview(iconView)
         addSubview(nameLabel)
@@ -69,8 +74,14 @@ extension StatusTableViewCellTopView {
         addSubview(timeLabel)
         addSubview(sourceLabel)
         //自动布局
+        sepView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.snp.top)
+            make.left.equalTo(self.snp.left)
+            make.right.equalTo(self.snp.right)
+            make.height.equalTo(StatusCellMargin)
+        }
         iconView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.snp.top).offset(StatusCellMargin)
+            make.top.equalTo(sepView.snp.bottom).offset(StatusCellMargin)
             make.left.equalTo(self.snp.left).offset(StatusCellMargin)
             make.width.equalTo(StatusCellIconWidth)
             make.height.equalTo(StatusCellIconWidth)

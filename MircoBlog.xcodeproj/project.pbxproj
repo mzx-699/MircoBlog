@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E409EC2EF1DDCCA96159EBC /* Pods_MircoBlog_MircoBlogUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF34E8C8B4E645D00C559CF /* Pods_MircoBlog_MircoBlogUITests.framework */; };
+		18711FDE26293827008C5A49 /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18711FDD26293826008C5A49 /* StatusPictureView.swift */; };
 		1879BA52261D46AC0066DA14 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879BA51261D46AC0066DA14 /* UILabel+Extension.swift */; };
 		1879BA57261D48850066DA14 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879BA56261D48850066DA14 /* UIImageView+Extension.swift */; };
 		1879BA5C261D537E0066DA14 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879BA5B261D537E0066DA14 /* Common.swift */; };
@@ -60,6 +61,7 @@
 
 /* Begin PBXFileReference section */
 		0A5CD6770D57970085F44E43 /* Pods-MircoBlog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MircoBlog.debug.xcconfig"; path = "Target Support Files/Pods-MircoBlog/Pods-MircoBlog.debug.xcconfig"; sourceTree = "<group>"; };
+		18711FDD26293826008C5A49 /* StatusPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
 		1879BA51261D46AC0066DA14 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		1879BA56261D48850066DA14 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		1879BA5B261D537E0066DA14 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			children = (
 				1879BC9D2621901B0066DA14 /* StatusTableViewCell.swift */,
 				1879BCA52621904A0066DA14 /* StatusTableViewCellTopView.swift */,
+				18711FDD26293826008C5A49 /* StatusPictureView.swift */,
 				1879BCAA262190760066DA14 /* StatusTableViewCellBottomView.swift */,
 			);
 			path = StatusCell;
@@ -609,6 +612,7 @@
 				1879BC1F261F26090066DA14 /* UserAccountViewModel.swift in Sources */,
 				18D9708C2615E80F005F0A5A /* UIButton+Extension.swift in Sources */,
 				1879BC14261EE9CC0066DA14 /* UserAccount.swift in Sources */,
+				18711FDE26293827008C5A49 /* StatusPictureView.swift in Sources */,
 				1879BC9826218DBC0066DA14 /* StatusViewModel.swift in Sources */,
 				1879BC89262159FF0066DA14 /* Status.swift in Sources */,
 				1879BC73262026630066DA14 /* NewFeatureCollectionViewController.swift in Sources */,

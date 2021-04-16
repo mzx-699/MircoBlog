@@ -20,6 +20,8 @@ class Status: NSObject {
     @objc var source: String?
     ///用户模型
     @objc var user: User?
+    ///缩略图配图数组 key thumbnail_pic
+    @objc var pic_urls: [[String : String]]?
     
     init(dict: [String : Any]) {
         super.init()
@@ -41,7 +43,7 @@ class Status: NSObject {
     }
     
     override var description: String {
-        let keys = ["id", "text", "created_at", "source", "user"]
+        let keys = ["id", "text", "created_at", "source", "user", "pic_urls"]
         return dictionaryWithValues(forKeys: keys).description
     }
 }

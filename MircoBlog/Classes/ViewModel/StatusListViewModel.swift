@@ -36,7 +36,7 @@ class StatusListViewModel {
             }
             //2.拼接数据
             self.statusList = dataList + self.statusList
-            
+            print(self.statusList)
             //完成回调
             finished(true)
             

@@ -7,7 +7,7 @@
 
 import UIKit
 ///微博视图模型 - 处理单条微博的业务逻辑
-class StatusViewModel {
+class StatusViewModel: CustomStringConvertible {
     ///微博的模型
     var status: Status
     
@@ -45,8 +45,27 @@ class StatusViewModel {
         }
         
     }
+    ///缩略图URL数组 设置成存储型属性
+    var thumbnailUrls: [URL]?
+    
     ///构造函数，使其可选
     init(status: Status) {
         self.status = status
+        //根据模型生成缩略图数组
+        if status.pic_urls!.count > 0 {
+            //创建缩略图数据
+            thumbnailUrls = [URL]()
+            //遍历字典数组 数组如果可选，不允许遍历，数组是通过下标来检索数据的
+            for dict in status.pic_urls! {
+                //因为字典是按照key为取值，如果key错误，会返回nil
+                let url = URL(string: dict["thumbnail_pic"]!)
+                //相信服务器返回的url字符串一定能生成
+                thumbnailUrls?.append(url!)
+            }
+        }
+    }
+    var description: String {
+        //strng到nstring array到nsarray dic到nsdic as不需要加!?
+        return self.status.description + "配图数组\(thumbnailUrls ?? [] as Array)"
     }
 }

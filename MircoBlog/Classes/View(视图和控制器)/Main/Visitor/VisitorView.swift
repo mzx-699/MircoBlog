@@ -65,8 +65,8 @@ class VisitorView: UIView {
     private lazy var messageLabel: UILabel = UILabel(title: "关注一些人，回这里看看有什么惊喜关注一些人，回这里看看有什么惊喜")
     
     ///按钮
-    lazy var registerButton: UIButton = UIButton(title: "注册", color: UIColor.orange, imageName: "common_button_white_disable")
-    lazy var loginButton: UIButton = UIButton(title: "登陆", color: UIColor.darkGray, imageName: "common_button_white_disable")
+    lazy var registerButton: UIButton = UIButton(title: "注册", color: UIColor.orange, backImageName: "common_button_white_disable")
+    lazy var loginButton: UIButton = UIButton(title: "登陆", color: UIColor.darkGray, backImageName: "common_button_white_disable")
 
 }
 //MARK: - 设置界面
