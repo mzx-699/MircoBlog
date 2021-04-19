@@ -19,4 +19,5 @@ target 'MircoBlog' do
   pod 'SDWebImage'
   pod 'SVProgressHUD'
   pod 'SnapKit'
+  pod 'UICollectionViewLeftAlignedLayout'
 end

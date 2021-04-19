@@ -7,12 +7,12 @@
 
 import UIKit
 import SDWebImage
+import UICollectionViewLeftAlignedLayout
 private let StatusPictureViewItemMargin: CGFloat = 8
 ///可重用标示符
 private let StatusPictureCellId = "StatusPictureCellId"
 ///配图视图
 class StatusPictureView: UICollectionView {
-    
     ///微博视图模型
     var viewModel: StatusViewModel? {
         didSet {
@@ -28,13 +28,12 @@ class StatusPictureView: UICollectionView {
     }
     //MARK: - 构造函数
     init() {
-        let layout = UICollectionViewFlowLayout()
+        let layout = UICollectionViewLeftAlignedLayout()
         //设置间距 默认itemSize 50*50
         layout.minimumInteritemSpacing = StatusPictureViewItemMargin
         layout.minimumLineSpacing = StatusPictureViewItemMargin
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0), collectionViewLayout: layout)
         backgroundColor = UIColor.white
-        
         //设置数据源 自己当自己的数据源，自定义视图的小框架
         dataSource = self
         //注册可重用cell
@@ -44,6 +43,8 @@ class StatusPictureView: UICollectionView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
     
     
 
@@ -56,9 +57,12 @@ extension StatusPictureView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StatusPictureCellId, for: indexPath) as! StatusPicutreCell
         cell.imageUrl = viewModel?.thumbnailUrls![indexPath.item]
+//        cell.backgroundColor = UIColor.red
         return cell
     }
 }
+
+
 //MARK: - 计算视图大小
 extension StatusPictureView {
     private func calcViewSize() -> CGSize {
@@ -67,7 +71,7 @@ extension StatusPictureView {
         //最大宽度
         let maxWidth = UIScreen.main.bounds.width - 2 * StatusCellMargin
         let itemWidth = (maxWidth - 2 * StatusPictureViewItemMargin) / rowCount
-        
+
         //设置layout的itemSize
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
@@ -88,15 +92,16 @@ extension StatusPictureView {
             return size
         }
         //四张图片返回2*2的大小
+        //宽度+1，让图片能放下
         if count == 4 {
-            let w = 2 * itemWidth + StatusPictureViewItemMargin
+            let w = 2 * itemWidth + StatusPictureViewItemMargin + 1
             return CGSize(width: w, height: w)
         }
         //其他数量图片 按照九宫格
         //计算行数
         let row = CGFloat((count - 1) / Int(rowCount) + 1)
         let h = row * itemWidth + (row - 1) * StatusPictureViewItemMargin
-        let w = CGFloat(count) * itemWidth + (rowCount - 1) * StatusPictureViewItemMargin
+        let w = rowCount * itemWidth + (rowCount - 1) * StatusPictureViewItemMargin + 1
         
         return CGSize(width: w, height: h)
     }
@@ -123,7 +128,14 @@ private class StatusPicutreCell: UICollectionViewCell {
     }
     
     //MARK: - 懒加载控件
-    private lazy var iconView: UIImageView = UIImageView()
+    private lazy var iconView: UIImageView = {
+        let iv = UIImageView()
+        //设置填充模式
+        iv.contentMode = .scaleAspectFill
+        //需要裁切图片
+        iv.clipsToBounds = true
+        return iv
+    }()
     
     private func setupUI() {
         contentView.addSubview(iconView)

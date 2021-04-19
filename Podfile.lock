@@ -19,12 +19,14 @@ PODS:
   - SDWebImage/Core (5.10.4)
   - SnapKit (5.0.1)
   - SVProgressHUD (2.2.5)
+  - UICollectionViewLeftAlignedLayout (1.0.2)
 
 DEPENDENCIES:
   - AFNetworking
   - SDWebImage
   - SnapKit
   - SVProgressHUD
+  - UICollectionViewLeftAlignedLayout
 
 SPEC REPOS:
   trunk:
@@ -32,13 +34,15 @@ SPEC REPOS:
     - SDWebImage
     - SnapKit
     - SVProgressHUD
+    - UICollectionViewLeftAlignedLayout
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  UICollectionViewLeftAlignedLayout: 830bf6fa5bab9f9b464f62e3384f9d2e00b3c0f6
 
-PODFILE CHECKSUM: 2fa14bf155418d8fd2da9ad12bc30561068ce036
+PODFILE CHECKSUM: 6be760235caf34f70bd235377b3b5f0c185a991b
 
 COCOAPODS: 1.10.1

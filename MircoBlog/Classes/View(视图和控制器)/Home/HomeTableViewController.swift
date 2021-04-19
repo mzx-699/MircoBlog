@@ -7,9 +7,10 @@
 
 import UIKit
 import SVProgressHUD
-///微博cell ID
-private let StatusCellNormalId = "StatusCellNormalId"
-
+///原创微博cell ID
+let StatusCellNormalId = "StatusCellNormalId"
+///转发微博的可重用id
+let StatusRetweetedCellNormalId = "StatusRetweetedCellNormalId"
 class HomeTableViewController: VisitorTableViewController {
     
     ///微博数据列表模型
@@ -32,7 +33,7 @@ class HomeTableViewController: VisitorTableViewController {
     ///准备表格
     private func prepareTableView() {
         //注册可重用cell
-        tableView.register(StatusTableViewCell.self, forCellReuseIdentifier: StatusCellNormalId)
+        tableView.register(StatusRetweetedTableViewCell.self, forCellReuseIdentifier: StatusRetweetedCellNormalId)
         
         //取消分隔线
         tableView.separatorStyle = .none
@@ -66,7 +67,7 @@ extension HomeTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //会调用行高方法 没有indexpath参数的方法不会调用行高方法
-        let cell = tableView.dequeueReusableCell(withIdentifier: StatusCellNormalId, for: indexPath) as! StatusTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: StatusRetweetedCellNormalId, for: indexPath) as! StatusTableViewCell
         cell.viewModel = listViewModel.statusList[indexPath.row]
         return cell
     }
@@ -80,15 +81,13 @@ extension HomeTableViewController {
      2.没设置预估行高 计算所有行的高度，再计算显示行的高度*2
      执行顺序 行数 行高 显示cell
      问题：为什么要调用所有的行高方法，UITableView继承自UIScrollView，表格视图滚动非常流畅 -> contentSize要提前计算
+     
+     如果行高是固定值，就不要实现行高代理方法
+     实际开发中，行高一定要缓存
      */
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        print(indexPath)
+//        print(indexPath)
         //视图模型
-        let vm = listViewModel.statusList[indexPath.row]
-        //cell
-        let cell = StatusTableViewCell(style: .default, reuseIdentifier: StatusCellNormalId)
-        
-        //返回高度
-        return cell.rowHeight(vm: vm)
+        return listViewModel.statusList[indexPath.row].rowHeight
     }
 }

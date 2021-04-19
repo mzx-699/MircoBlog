@@ -11,6 +11,15 @@ class StatusViewModel: CustomStringConvertible {
     ///微博的模型
     var status: Status
     
+    ///行高
+    lazy var rowHeight: CGFloat = {
+
+        //cell
+        let cell = StatusRetweetedTableViewCell(style: .default, reuseIdentifier: StatusRetweetedCellNormalId)
+        //计算高度
+        return cell.rowHeight(vm: self)
+
+    }()
     ///用户头像 URL
     var userProFileUrl: URL {
         return URL(string: status.user?.profile_image_url ?? "")!
@@ -46,17 +55,19 @@ class StatusViewModel: CustomStringConvertible {
         
     }
     ///缩略图URL数组 设置成存储型属性
+    //原创微博，可以有图，可以没有图，转发微博，一定没有图，被转发的微博中，可以有图，也可以没有图
+    //一条微博，最多有一个pic_urls数组
     var thumbnailUrls: [URL]?
     
     ///构造函数，使其可选
     init(status: Status) {
         self.status = status
         //根据模型生成缩略图数组
-        if status.pic_urls!.count > 0 {
+        if let urls = status.retweeted_status?.pic_urls ?? status.pic_urls {
             //创建缩略图数据
             thumbnailUrls = [URL]()
             //遍历字典数组 数组如果可选，不允许遍历，数组是通过下标来检索数据的
-            for dict in status.pic_urls! {
+            for dict in urls {
                 //因为字典是按照key为取值，如果key错误，会返回nil
                 let url = URL(string: dict["thumbnail_pic"]!)
                 //相信服务器返回的url字符串一定能生成
