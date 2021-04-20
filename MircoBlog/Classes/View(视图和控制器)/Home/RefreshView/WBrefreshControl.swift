@@ -16,7 +16,7 @@ class WBrefreshControl: UIRefreshControl {
         //停止动画
         refreshView.stopAnimation()
     }
-    ///主动出发开始刷新动画 -- 不回触发监听方法
+    ///主动触发开始刷新动画 -- 不不会触发监听方法
     override func beginRefreshing() {
         super.beginRefreshing()
         refreshView.startAnimation()
@@ -50,6 +50,7 @@ class WBrefreshControl: UIRefreshControl {
         setupUI()
     }
     private func setupUI() {
+        tintColor = UIColor.clear
         addSubview(refreshView)
         //从xib加载的控件，需要指定大小约束
         refreshView.snp.makeConstraints { (make) in

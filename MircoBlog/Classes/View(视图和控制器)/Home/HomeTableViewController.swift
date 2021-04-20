@@ -51,15 +51,17 @@ class HomeTableViewController: VisitorTableViewController {
         refreshControl = WBrefreshControl()
         //添加监听方法
         refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
-
-        refreshControl?.tintColor = UIColor.clear
+        //上来刷新视图
+        tableView.tableFooterView = pullupView
     }
     ///加载属性
     @objc private func loadData() {
         refreshControl?.beginRefreshing()
-        listViewModel.loadStatus { (isSuccessed) in
-            //关闭刷新控件
+        listViewModel.loadStatus(isPullup: pullupView.isAnimating) { (isSuccessed) in
+            //关闭下拉刷新控件
             self.refreshControl?.endRefreshing()
+            //关闭上拉刷新
+            self.pullupView.stopAnimating()
             if !isSuccessed {
                 SVProgressHUD.showInfo(withStatus: "加载数据错误，请稍后再试")
                 return
@@ -69,6 +71,11 @@ class HomeTableViewController: VisitorTableViewController {
             self.tableView.reloadData()
         }
     }
+    //MARK: - 懒加载控件
+    private lazy var pullupView: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+        return indicator
+    }()
 }
 
 //MARK: - 数据源方法
@@ -83,6 +90,12 @@ extension HomeTableViewController {
         //会调用行高方法 没有indexpath参数的方法不会调用行高方法
         let cell = tableView.dequeueReusableCell(withIdentifier: vm.cellId!, for: indexPath) as! StatusTableViewCell
         cell.viewModel = vm
+        //判断是否是最后一条微博
+        if indexPath.row == listViewModel.statusList.count - 1 && !pullupView.isAnimating {
+            pullupView.startAnimating()
+            //上拉刷新数据
+            loadData()
+        }
         return cell
     }
     /**

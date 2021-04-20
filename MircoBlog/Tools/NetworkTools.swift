@@ -48,15 +48,25 @@ class NetworkTools: AFHTTPSessionManager {
 extension NetworkTools {
     
     /// 加载微博数据
+    /// since_id    false    int64    若指定此参数，则返回ID比since_id大的微博（即比since_id时间晚的微博），默认为0。
+    /// max_id    false    int64    若指定此参数，则返回ID小于或等于max_id的微博，默认为0。
     /// - Parameter finished: 完成回调
     /// - see: [https://open.weibo.com/wiki/2/statuses/home_timeline](https://open.weibo.com/wiki/2/statuses/home_timeline)
-    func loadStatus(finished: @escaping SSRequestCallBack) {
+    func loadStatus(since_id: Int, max_id: Int, finished: @escaping SSRequestCallBack) {
         //1.获取token字典
-        guard let params = tokenDict else {
+        guard var params = tokenDict else {
             //如果字典为nil，通知调用方，token无效
             
             finished(nil, NSError(domain: "mzx.error", code: -1001, userInfo: ["message" : "token为空"]))
             return
+        }
+        //判断是否下拉
+        if since_id > 0 {
+            params["since_id"] = since_id
+        }
+        else if max_id > 0 { //上拉
+            //-1防止加载重复微博
+            params["max_id"] = max_id - 1
         }
         // 准备网络参数
         let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"

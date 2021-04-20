@@ -11,11 +11,17 @@ import SDWebImage
 class StatusListViewModel {
     ///微博数据数组
     lazy var statusList = [StatusViewModel]()
-    
-    ///加载网络数据
-    func loadStatus(finished: @escaping (_ isSuccessed: Bool)->()) {
-        
-        NetworkTools.sharedTools.loadStatus { (result, error) in
+
+    /// 加载网络数据
+    /// - Parameters:
+    ///   - isPullup: 是否上拉刷新
+    ///   - finished: 完成回调
+    func loadStatus(isPullup: Bool, finished: @escaping (_ isSuccessed: Bool)->()) {
+        //下拉刷新 比数组中第一条微博大的id就是新的微博
+        let since_id = isPullup ? 0 : statusList.first?.status.id ?? 0
+        //上拉刷新 比数组中最后一条微博id小的微博
+        let max_id = isPullup ? statusList.last?.status.id ?? 0 : 0
+        NetworkTools.sharedTools.loadStatus(since_id: since_id, max_id: max_id) { (result, error) in
             if error != nil {
                 print("出错了\(error!)")
                 finished(false)
@@ -35,7 +41,13 @@ class StatusListViewModel {
                 dataList.append(StatusViewModel(status: Status(dict: dict)))
             }
             //2.拼接数据
-            self.statusList = dataList + self.statusList
+            //判断是否是上拉刷新
+            if max_id > 0 {
+                self.statusList += dataList
+            }
+            else {
+                self.statusList = dataList + self.statusList
+            }
 //            print(self.statusList)
 //            //完成回调
 //            finished(true)
