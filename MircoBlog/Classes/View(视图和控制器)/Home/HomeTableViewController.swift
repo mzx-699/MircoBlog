@@ -10,7 +10,7 @@ import SVProgressHUD
 ///原创微博cell ID
 let StatusCellNormalId = "StatusCellNormalId"
 ///转发微博的可重用id
-let StatusRetweetedCellNormalId = "StatusRetweetedCellNormalId"
+let StatusCellRetweetedId = "StatusCellRetweetedId"
 class HomeTableViewController: VisitorTableViewController {
     
     ///微博数据列表模型
@@ -33,7 +33,8 @@ class HomeTableViewController: VisitorTableViewController {
     ///准备表格
     private func prepareTableView() {
         //注册可重用cell
-        tableView.register(StatusRetweetedTableViewCell.self, forCellReuseIdentifier: StatusRetweetedCellNormalId)
+        tableView.register(StatusNormalTableViewCell.self, forCellReuseIdentifier: StatusCellNormalId)
+        tableView.register(StatusRetweetedTableViewCell.self, forCellReuseIdentifier: StatusCellRetweetedId)
         
         //取消分隔线
         tableView.separatorStyle = .none
@@ -44,10 +45,21 @@ class HomeTableViewController: VisitorTableViewController {
         //1.从上往下计算空间位置
         //2.从下往上按照底部约束挤到最合适的约束
 //        tableView.rowHeight = UITableView.automaticDimension
+        
+        //navbar 44 tabbar 49
+        //下来刷新 下来刷新控件默认没有 高度60
+        refreshControl = WBrefreshControl()
+        //添加监听方法
+        refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
+
+        refreshControl?.tintColor = UIColor.clear
     }
     ///加载属性
-    private func loadData() {
+    @objc private func loadData() {
+        refreshControl?.beginRefreshing()
         listViewModel.loadStatus { (isSuccessed) in
+            //关闭刷新控件
+            self.refreshControl?.endRefreshing()
             if !isSuccessed {
                 SVProgressHUD.showInfo(withStatus: "加载数据错误，请稍后再试")
                 return
@@ -66,9 +78,11 @@ extension HomeTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //获取视图模型
+        let vm = listViewModel.statusList[indexPath.row]
         //会调用行高方法 没有indexpath参数的方法不会调用行高方法
-        let cell = tableView.dequeueReusableCell(withIdentifier: StatusRetweetedCellNormalId, for: indexPath) as! StatusTableViewCell
-        cell.viewModel = listViewModel.statusList[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: vm.cellId!, for: indexPath) as! StatusTableViewCell
+        cell.viewModel = vm
         return cell
     }
     /**

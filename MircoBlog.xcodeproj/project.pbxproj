@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0E409EC2EF1DDCCA96159EBC /* Pods_MircoBlog_MircoBlogUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF34E8C8B4E645D00C559CF /* Pods_MircoBlog_MircoBlogUITests.framework */; };
+		182114F7262D728700FE98FB /* StatusNormalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182114F6262D728700FE98FB /* StatusNormalTableViewCell.swift */; };
+		18211508262E882800FE98FB /* WBrefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18211507262E882800FE98FB /* WBrefreshControl.swift */; };
+		1821150D262E88CB00FE98FB /* WBRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1821150C262E88CB00FE98FB /* WBRefreshView.xib */; };
 		18711FDE26293827008C5A49 /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18711FDD26293826008C5A49 /* StatusPictureView.swift */; };
 		18736ECB262D638A0069433E /* StatusRetweetedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18736ECA262D638A0069433E /* StatusRetweetedTableViewCell.swift */; };
 		1879BA52261D46AC0066DA14 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879BA51261D46AC0066DA14 /* UILabel+Extension.swift */; };
@@ -62,6 +65,9 @@
 
 /* Begin PBXFileReference section */
 		0A5CD6770D57970085F44E43 /* Pods-MircoBlog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MircoBlog.debug.xcconfig"; path = "Target Support Files/Pods-MircoBlog/Pods-MircoBlog.debug.xcconfig"; sourceTree = "<group>"; };
+		182114F6262D728700FE98FB /* StatusNormalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusNormalTableViewCell.swift; sourceTree = "<group>"; };
+		18211507262E882800FE98FB /* WBrefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBrefreshControl.swift; sourceTree = "<group>"; };
+		1821150C262E88CB00FE98FB /* WBRefreshView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBRefreshView.xib; sourceTree = "<group>"; };
 		18711FDD26293826008C5A49 /* StatusPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
 		18736ECA262D638A0069433E /* StatusRetweetedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusRetweetedTableViewCell.swift; sourceTree = "<group>"; };
 		1879BA51261D46AC0066DA14 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
@@ -137,6 +143,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18211506262E87B500FE98FB /* RefreshView */ = {
+			isa = PBXGroup;
+			children = (
+				18211507262E882800FE98FB /* WBrefreshControl.swift */,
+				1821150C262E88CB00FE98FB /* WBRefreshView.xib */,
+			);
+			path = RefreshView;
+			sourceTree = "<group>";
+		};
 		1879BBC7261DB3EF0066DA14 /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				1879BC9D2621901B0066DA14 /* StatusTableViewCell.swift */,
+				182114F6262D728700FE98FB /* StatusNormalTableViewCell.swift */,
 				18736ECA262D638A0069433E /* StatusRetweetedTableViewCell.swift */,
 				1879BCA52621904A0066DA14 /* StatusTableViewCellTopView.swift */,
 				18711FDD26293826008C5A49 /* StatusPictureView.swift */,
@@ -275,6 +291,7 @@
 		18D970452615C48C005F0A5A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				18211506262E87B500FE98FB /* RefreshView */,
 				1879BC9C26218FF80066DA14 /* StatusCell */,
 				18D970692615C5E7005F0A5A /* HomeTableViewController.swift */,
 			);
@@ -467,6 +484,7 @@
 			files = (
 				18D9700A2615B4DF005F0A5A /* LaunchScreen.storyboard in Resources */,
 				18D970072615B4DF005F0A5A /* Assets.xcassets in Resources */,
+				1821150D262E88CB00FE98FB /* WBRefreshView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,11 +613,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				18736ECB262D638A0069433E /* StatusRetweetedTableViewCell.swift in Sources */,
+				18211508262E882800FE98FB /* WBrefreshControl.swift in Sources */,
 				18D9707E2615C610005F0A5A /* ProfileTableViewController.swift in Sources */,
 				1879BCAB262190760066DA14 /* StatusTableViewCellBottomView.swift in Sources */,
 				18D9706A2615C5E7005F0A5A /* HomeTableViewController.swift in Sources */,
 				1879BBCA261DB4250066DA14 /* OAtuhViewController.swift in Sources */,
 				1879BA52261D46AC0066DA14 /* UILabel+Extension.swift in Sources */,
+				182114F7262D728700FE98FB /* StatusNormalTableViewCell.swift in Sources */,
 				18D970792615C609005F0A5A /* MessageTableViewController.swift in Sources */,
 				1879BA5C261D537E0066DA14 /* Common.swift in Sources */,
 				18D970862615C63E005F0A5A /* MainViewController.swift in Sources */,

@@ -10,12 +10,23 @@ import UIKit
 class StatusViewModel: CustomStringConvertible {
     ///微博的模型
     var status: Status
-    
+    ///表格的可重用标示符号
+    var cellId: String? {
+        return status.retweeted_status != nil ? StatusCellRetweetedId : StatusCellNormalId
+    }
     ///行高
     lazy var rowHeight: CGFloat = {
 
         //cell
-        let cell = StatusRetweetedTableViewCell(style: .default, reuseIdentifier: StatusRetweetedCellNormalId)
+        var cell: StatusTableViewCell
+        //根据是否是转发微博，决定cell的创建
+        if self.status.retweeted_status != nil {
+            cell = StatusRetweetedTableViewCell(style: .default, reuseIdentifier: StatusCellRetweetedId)
+        }
+        else {
+            cell = StatusNormalTableViewCell(style: .default, reuseIdentifier: StatusCellNormalId)
+        }
+        
         //计算高度
         return cell.rowHeight(vm: self)
 
@@ -58,7 +69,15 @@ class StatusViewModel: CustomStringConvertible {
     //原创微博，可以有图，可以没有图，转发微博，一定没有图，被转发的微博中，可以有图，也可以没有图
     //一条微博，最多有一个pic_urls数组
     var thumbnailUrls: [URL]?
-    
+    ///转发微博文本
+    var retweetedText: String? {
+        //判断是否是转发微博，如果不是直接返回nil
+        guard let s = status.retweeted_status else {
+            return nil
+        }
+        let content = "@" + (s.user?.screen_name ?? "") + ":" + (s.text ?? "")
+        return content
+    }
     ///构造函数，使其可选
     init(status: Status) {
         self.status = status

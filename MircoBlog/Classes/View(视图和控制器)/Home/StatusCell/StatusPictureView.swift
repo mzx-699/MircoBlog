@@ -84,8 +84,23 @@ extension StatusPictureView {
         }
         //一张图片
         if count == 1 {
-            // TODO: - 临时指定大小
-            let size = CGSize(width: 150, height: 120)
+            var size = CGSize(width: 150, height: 120)
+            //利用sdwebimage检查本地缓存图像
+            ///key url完整字符串
+            //问：sdwebImage是如何设置缓存文件的文件名的 对完成url字符串的‘MD5’
+            if let key = viewModel?.thumbnailUrls?.first?.absoluteString {
+                if let image = SDImageCache.shared.imageFromDiskCache(forKey: key) {
+                    size = image.size 
+                }
+            }
+            //过窄处理 针对长图 --- 改变条件进行测试
+            size.width = size.width < 40 ? 40 : size.width
+            //过宽处理
+            if size.width > 300 {
+                let w: CGFloat = 300
+                let h = size.height / size.width * w
+                size = CGSize(width: w, height: h)
+            }
             //内部图片的大小
             layout.itemSize  = size
             //配图视图的大小
@@ -132,6 +147,7 @@ private class StatusPicutreCell: UICollectionViewCell {
         let iv = UIImageView()
         //设置填充模式
         iv.contentMode = .scaleAspectFill
+        iv.backgroundColor = UIColor.lightGray
         //需要裁切图片
         iv.clipsToBounds = true
         return iv

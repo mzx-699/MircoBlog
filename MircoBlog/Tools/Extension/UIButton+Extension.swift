@@ -19,7 +19,6 @@ extension UIButton {
         setBackgroundImage(UIImage(named: backImageName + "_highlighted"), for: .highlighted)
         sizeToFit()
     }
-    // TODO: - 修改参数名
     ///UIButton
     convenience init(title: String, color: UIColor, backImageName: String) {
         self.init()

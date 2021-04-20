@@ -29,8 +29,8 @@ class StatusTableViewCell: UITableViewCell {
                 //直接设置宽度数值
                 make.width.equalTo(pictureView.bounds.width)
                 //根据配图数量，决定配图视图的顶部间距
-                let offset = viewModel?.thumbnailUrls?.count ?? 0 > 0 ? StatusCellMargin : 0
-                make.top.equalTo(contentLabel.snp.bottom).offset(offset)
+//                let offset = viewModel?.thumbnailUrls?.count ?? 0 > 0 ? StatusCellMargin : 0
+//                make.top.equalTo(contentLabel.snp.bottom).offset(offset)
                 
             }
         }
@@ -64,18 +64,18 @@ class StatusTableViewCell: UITableViewCell {
     ///顶部视图
     private lazy var topView: StatusTableViewCellTopView = StatusTableViewCellTopView()
     ///微博正文标签
-    private lazy var contentLabel: UILabel = UILabel(title: "微博正文", screenInset: StatusCellMargin, fontSize: 15)
+    lazy var contentLabel: UILabel = UILabel(title: "微博正文", screenInset: StatusCellMargin, fontSize: 15)
     ///配图
-    private lazy var pictureView: StatusPictureView = StatusPictureView()
+    lazy var pictureView: StatusPictureView = StatusPictureView()
     ///底部视图
-    private lazy var bottomView: StatusTableViewCellBottomView = StatusTableViewCellBottomView()
+    lazy var bottomView: StatusTableViewCellBottomView = StatusTableViewCellBottomView()
     
 }
 
 //MARK: - 设置界面
 extension StatusTableViewCell {
     
-    private func setupUI() {
+    @objc func setupUI() {
         //1.添加控件
         contentView.addSubview(topView)
         contentView.addSubview(contentLabel)
@@ -88,7 +88,6 @@ extension StatusTableViewCell {
             make.top.equalTo(contentView.snp.top)
             make.left.equalTo(contentView.snp.left)
             make.right.equalTo(contentView.snp.right)
-            // TODO: - 修改高度
             make.height.equalTo(2 * StatusCellMargin + StatusCellIconWidth)
         }
         //内容标签
@@ -97,13 +96,7 @@ extension StatusTableViewCell {
             make.left.equalTo(contentView.snp.left).offset(StatusCellMargin)
             
         }
-        //配图视图
-        pictureView.snp.makeConstraints { (make) in
-            make.top.equalTo(contentLabel.snp.bottom).offset(StatusCellMargin)
-            make.left.equalTo(contentLabel.snp.left)
-            make.width.equalTo(300)
-            make.height.equalTo(90)
-        }
+
         //底部视图
         bottomView.snp.makeConstraints { (make) in
             make.top.equalTo(pictureView.snp.bottom).offset(StatusCellMargin)
