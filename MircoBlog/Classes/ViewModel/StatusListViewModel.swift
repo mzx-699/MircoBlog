@@ -18,6 +18,7 @@ class StatusListViewModel {
     ///   - finished: 完成回调
     func loadStatus(isPullup: Bool, finished: @escaping (_ isSuccessed: Bool)->()) {
         //下拉刷新 比数组中第一条微博大的id就是新的微博
+        //0的时候加载20条数据
         let since_id = isPullup ? 0 : statusList.first?.status.id ?? 0
         //上拉刷新 比数组中最后一条微博id小的微博
         let max_id = isPullup ? statusList.last?.status.id ?? 0 : 0
@@ -48,6 +49,7 @@ class StatusListViewModel {
             else {
                 self.statusList = dataList + self.statusList
             }
+            print("刷新出\(dataList.count)")
 //            print(self.statusList)
 //            //完成回调
 //            finished(true)

@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="T4K-7t-4nm" customClass="WBRefreshView" customModule="MircoBlog" customModuleProvider="target">
+        <view contentMode="scaleAspectFit" id="T4K-7t-4nm" customClass="WBRefreshView" customModule="MircoBlog" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="160" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -49,8 +49,9 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="loadingIconView" destination="Siw-Or-ovG" id="152-OZ-exc"/>
+                <outlet property="loadingIconView" destination="Siw-Or-ovG" id="8gi-yB-TJM"/>
                 <outlet property="tipIconView" destination="wYt-9h-qyb" id="2wb-r9-DMM"/>
+                <outlet property="tipLabel" destination="BiW-HV-TD5" id="At9-a6-v0o"/>
                 <outlet property="tipView" destination="IWG-ZL-bbs" id="H48-cs-6Df"/>
             </connections>
             <point key="canvasLocation" x="-64" y="30"/>

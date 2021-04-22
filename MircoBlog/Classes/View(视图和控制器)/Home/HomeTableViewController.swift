@@ -49,8 +49,7 @@ class HomeTableViewController: VisitorTableViewController {
         //navbar 44 tabbar 49
         //下来刷新 下来刷新控件默认没有 高度60
         refreshControl = WBrefreshControl()
-        //添加监听方法
-        refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
+
         //上来刷新视图
         tableView.tableFooterView = pullupView
     }
@@ -117,4 +116,14 @@ extension HomeTableViewController {
         //视图模型
         return listViewModel.statusList[indexPath.row].rowHeight
     }
+    override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        print("tableView.contentOffset.y + \(tableView.contentOffset.y)")
+        
+        if velocity.y < 0 && tableView.contentOffset.y < -100{
+//            print("velocity.y + \(velocity.y)")
+            loadData()
+            print("开始刷新")
+        }
+    }
+
 }

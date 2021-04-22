@@ -67,6 +67,7 @@ extension NetworkTools {
         else if max_id > 0 { //上拉
             //-1防止加载重复微博
             params["max_id"] = max_id - 1
+            params["count"] = 10
         }
         // 准备网络参数
         let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"

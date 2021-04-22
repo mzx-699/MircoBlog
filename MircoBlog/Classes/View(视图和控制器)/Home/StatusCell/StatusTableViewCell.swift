@@ -33,6 +33,8 @@ class StatusTableViewCell: UITableViewCell {
 //                make.top.equalTo(contentLabel.snp.bottom).offset(offset)
                 
             }
+            contentView.layoutIfNeeded()
+            
         }
     }
     

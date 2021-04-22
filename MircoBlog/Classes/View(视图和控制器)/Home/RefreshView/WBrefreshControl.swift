@@ -7,7 +7,7 @@
 
 import UIKit
 ///下拉刷新控件的偏移量
-private let WBRefreshControlOffset:CGFloat = -60
+private let WBRefreshControlOffset:CGFloat = -50
 ///自定义刷新控件-负责处理刷新逻辑
 class WBrefreshControl: UIRefreshControl {
     //MARK: - 重新系统方法
@@ -40,6 +40,7 @@ class WBrefreshControl: UIRefreshControl {
             refreshView.rotateFlag = false
         }
     }
+
     override init() {
         super.init()
         setupUI()
@@ -80,8 +81,15 @@ class WBRefreshView: UIView {
     var rotateFlag = false {
         didSet {
             rotateTipIcon()
+            if rotateFlag == true {
+                tipLabel.text = "释放刷新数据..."
+            }
+            else {
+                tipLabel.text = "下拉开始刷新..."
+            }
         }
     }
+    @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var loadingIconView: UIImageView!
     @IBOutlet weak var tipView: UIView!
     @IBOutlet weak var tipIconView: UIImageView!
