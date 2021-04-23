@@ -68,6 +68,7 @@ class HomeTableViewController: VisitorTableViewController {
 //            print(self.listViewModel.statusList)
             //刷新数据
             self.tableView.reloadData()
+            
         }
     }
     //MARK: - 懒加载控件
@@ -95,6 +96,7 @@ extension HomeTableViewController {
             //上拉刷新数据
             loadData()
         }
+        cell.contentView.layoutIfNeeded()
         return cell
     }
     /**
@@ -112,18 +114,20 @@ extension HomeTableViewController {
      实际开发中，行高一定要缓存
      */
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        print(indexPath)
+//        print("\(indexPath.row) : \(listViewModel.statusList[indexPath.row].rowHeight)")
         //视图模型
         return listViewModel.statusList[indexPath.row].rowHeight
     }
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        print("tableView.contentOffset.y + \(tableView.contentOffset.y)")
+
         
         if velocity.y < 0 && tableView.contentOffset.y < -100{
 //            print("velocity.y + \(velocity.y)")
             loadData()
-            print("开始刷新")
+
         }
     }
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("\(indexPath.row) : \(listViewModel.statusList[indexPath.row].rowHeight)")
+    }
 }

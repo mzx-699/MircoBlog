@@ -89,8 +89,9 @@ extension StatusPictureView {
             ///key url完整字符串
             //问：sdwebImage是如何设置缓存文件的文件名的 对完成url字符串的‘MD5’
             if let key = viewModel?.thumbnailUrls?.first?.absoluteString {
-                if let image = SDImageCache.shared.imageFromDiskCache(forKey: key) {
-                    size = image.size 
+                if let image = SDImageCache.shared.imageFromCache(forKey: key, options: [.preloadAllFrames, .queryMemoryData], context: nil) {
+                    size = image.size
+
                 }
             }
             //过窄处理 针对长图 --- 改变条件进行测试

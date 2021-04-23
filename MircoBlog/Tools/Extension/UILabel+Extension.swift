@@ -17,9 +17,9 @@ extension UILabel {
     ///   - color: 默认深灰色
     ///   - screenInset: 相对于屏幕左右的缩紧，默认为0，居中显示，如果设置则左对齐
     convenience init(title: String,
-                     screenInset: CGFloat = 0,
                      fontSize: CGFloat = 14,
-                     color: UIColor = UIColor.darkGray) {
+                     color: UIColor = UIColor.darkGray,
+                     screenInset: CGFloat = 0) {
         self.init()
         
         text = title
@@ -35,6 +35,7 @@ extension UILabel {
             preferredMaxLayoutWidth = UIScreen.main.bounds.width - 2 * screenInset
             textAlignment = .left
         }
+        sizeToFit()
         
 
     }

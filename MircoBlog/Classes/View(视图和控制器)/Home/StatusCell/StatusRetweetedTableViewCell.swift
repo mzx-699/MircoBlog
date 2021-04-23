@@ -28,9 +28,9 @@ class StatusRetweetedTableViewCell: StatusTableViewCell {
     }()
     //转发标签
     private lazy var retweetedLabel: UILabel = UILabel(title: "转发微博转发微博转发微博转发微博转发微博转发微博转发微博转发微博转发微博转发微博转发微博",
-                                                       screenInset: StatusCellMargin,
                                                        fontSize: 14,
-                                                       color: UIColor.darkGray)
+                                                       color: UIColor.darkGray,
+                                                       screenInset: StatusCellMargin)
     
 }
 //MARK: - 设置界面

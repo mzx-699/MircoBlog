@@ -19,6 +19,18 @@ class MainViewController: UITabBarController {
     //如果使用@objc修饰保证运行循环能够发送此消息
     @objc private func clickComposedButton() {
 //        print("点我了")
+        //判断用户是否登陆
+        let vc: UIViewController
+        if UserAccountViewModel.sharedUserAccount.userLogon {
+            vc = ComposeViewController()
+        }
+        else {
+            vc = OAtuhViewController()
+            
+        }
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true, completion: nil)
     }
     //MARK: - 视图生命周期
     override func viewDidLoad() {

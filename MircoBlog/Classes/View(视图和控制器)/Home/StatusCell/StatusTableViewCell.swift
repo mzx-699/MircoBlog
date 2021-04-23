@@ -33,7 +33,7 @@ class StatusTableViewCell: UITableViewCell {
 //                make.top.equalTo(contentLabel.snp.bottom).offset(offset)
                 
             }
-            contentView.layoutIfNeeded()
+            
             
         }
     }
@@ -66,7 +66,7 @@ class StatusTableViewCell: UITableViewCell {
     ///顶部视图
     private lazy var topView: StatusTableViewCellTopView = StatusTableViewCellTopView()
     ///微博正文标签
-    lazy var contentLabel: UILabel = UILabel(title: "微博正文", screenInset: StatusCellMargin, fontSize: 15)
+    lazy var contentLabel: UILabel = UILabel(title: "微博正文", fontSize: 15, screenInset: StatusCellMargin)
     ///配图
     lazy var pictureView: StatusPictureView = StatusPictureView()
     ///底部视图
