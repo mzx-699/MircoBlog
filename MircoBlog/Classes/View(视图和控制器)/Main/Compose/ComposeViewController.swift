@@ -71,9 +71,10 @@ class ComposeViewController: UIViewController {
         let _ = UIViewPropertyAnimator(duration: duration, curve: UIView.AnimationCurve(rawValue: curve)!) {
             self.view.layoutIfNeeded()
         }
-        let anim = toolBar.layer.animation(forKey: "position")
-        anim?.duration = 11111
-        print(anim?.duration)
+        
+//        let anim = toolBar.layer.animation(forKey: "position")
+//        anim?.duration = 11111
+//        print(anim?.duration)
 
         
 //        UIView.animate(withDuration: duration, delay: 0, options: []) {
