@@ -13,7 +13,7 @@ private let PicturePickMaxCount = 9
 ///照片选择控制器
 class PicturePickerCollectionViewController: UICollectionViewController {
     ///配图数组
-    private lazy var pictures = [UIImage]()
+    lazy var pictures = [UIImage]()
     ///当前用户选中的照片索引
     private var selectedIndex = 0
     init() {

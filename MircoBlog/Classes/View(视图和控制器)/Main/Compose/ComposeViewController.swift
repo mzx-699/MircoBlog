@@ -9,6 +9,7 @@ import UIKit
 import SVProgressHUD
 //MARK: - 撰写控制器
 class ComposeViewController: UIViewController {
+    private lazy var picturePickerController = PicturePickerCollectionViewController()
     ///表情视图键盘
     private lazy var emoticonView: EmoticonView = EmoticonView { [weak self] (emoticon) in
         self?.textView.insertEmotion(em: emoticon)
@@ -26,11 +27,13 @@ class ComposeViewController: UIViewController {
         //1.获得文本内容
         let text = textView.emoitconText
         //2.发布微博
-        let image = UIImage(named: "123")
+        //照片
+        let image = picturePickerController.pictures.last
         NetworkTools.sharedTools.sendStatus(status: text, image: image) { (result, error) in
             if error != nil {
 //                print("发布微博出错了")
                 print(error!)
+//                print(image)
                 SVProgressHUD.showInfo(withStatus: "发布微博出错了")
                 return
             }
@@ -47,6 +50,32 @@ class ComposeViewController: UIViewController {
         textView.inputView = textView.inputView == nil ? emoticonView : nil
         //重新激活键盘
         textView.becomeFirstResponder()
+    }
+    ///选择照片
+    @objc private func selectPicture() {
+        //退掉键盘
+        textView.resignFirstResponder()
+        //如果已经更新约束，就不再执行代码
+        if picturePickerController.view.frame.height > 0 {
+            return
+        }
+//        print("selectPicture")
+        //1.修改照片选择控制器视图的约束
+        picturePickerController.view.snp.updateConstraints { (make) in
+            make.height.equalTo(view.bounds.height * 0.6)
+        }
+        //2.修改文本视图的约束
+        //重建约束，会将之前的约束全部都删除，重建建立
+        textView.snp.remakeConstraints { (make) in
+            make.top.equalTo(view.snp_topMargin)
+            make.left.equalTo(view.snp.left)
+            make.right.equalTo(view.snp.right)
+            make.bottom.equalTo(picturePickerController.view.snp.top)
+        }
+        //动画更新约束
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+        }
     }
     //MARK: - 处理键盘
     @objc private func keyboardChanged(n: Notification) {
@@ -103,8 +132,11 @@ class ComposeViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //激活键盘
-        textView.becomeFirstResponder()
+        //激活键盘 如果已经存在照片控制器视图，就不再激活键盘
+        if picturePickerController.view.frame.height == 0 {
+            textView.becomeFirstResponder()
+        }
+        
     }
     //MARK: - 懒加载控件
     ///工具条
@@ -133,13 +165,32 @@ extension ComposeViewController: UITextViewDelegate {
 }
 //MARK: - 设置界面
 private extension ComposeViewController {
+    
     func setupUI() {
+        //解决导航栏和滚动视图共同显示的时候
+        //取消自动调整滚动视图的间距 automaticallyAdjustsScrollViewInsets
+
         view.backgroundColor = UIColor.white
         prepareToolbar()
         prepareNavigationBar()
         prepareTextView()
+        preparePicturePicker()
         //输入助理视图 --- 演示
 //        textView.inputAccessoryView = toolBar
+    }
+    ///准备图片选择器
+    private func preparePicturePicker() {
+        //如果要调用其他控制器的内容，要进行add
+        addChild(picturePickerController)
+        //1.添加视图
+//        view.addSubview(picturePickerController.view)
+        view.insertSubview(picturePickerController.view, belowSubview: toolBar)
+        picturePickerController.view.snp.makeConstraints { (make) in
+            make.bottom.equalTo(view.snp.bottom)
+            make.left.equalTo(view.snp.left)
+            make.right.equalTo(view.snp.right)
+            make.height.equalTo(0)
+        }
     }
     ///准备文本视图
     func prepareTextView() {
@@ -158,6 +209,7 @@ private extension ComposeViewController {
             make.left.equalTo(textView.snp.left).offset(5)
         }
     }
+
     ///准备工具条
     func prepareToolbar() {
         //添加控件
@@ -170,7 +222,7 @@ private extension ComposeViewController {
             make.right.equalTo(view.snp.right)
             make.height.equalTo(44)
         }
-        let itemSettings = [["imageName": "compose_toolbar_picture"],
+        let itemSettings = [["imageName": "compose_toolbar_picture", "actionName": "selectPicture"],
             ["imageName": "compose_mentionbutton_background"],
             ["imageName": "compose_trendbutton_background"],
             ["imageName": "compose_emoticonbutton_background", "actionName": "selectEmoticon"],
