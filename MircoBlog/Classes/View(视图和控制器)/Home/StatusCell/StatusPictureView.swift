@@ -36,6 +36,8 @@ class StatusPictureView: UICollectionView {
         backgroundColor = UIColor.white
         //设置数据源 自己当自己的数据源，自定义视图的小框架
         dataSource = self
+        //设置代理
+        delegate = self
         //注册可重用cell
         register(StatusPicutreCell.self, forCellWithReuseIdentifier: StatusPictureCellId)
     }
@@ -49,8 +51,16 @@ class StatusPictureView: UICollectionView {
     
 
 }
-//MARK: - collectionView数据源方法
-extension StatusPictureView: UICollectionViewDataSource {
+//MARK: - collectionView UICollectionViewDelegate数据源方法
+extension StatusPictureView: UICollectionViewDataSource, UICollectionViewDelegate {
+    ///选中照片
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        print("点击照片\(indexPath)\(viewModel?.thumbnailUrls)")
+        //传递数据 当前url的数组/当前用户选中的索引
+        //通知组成 名字（通知中心监听）/object（发送通知同时传递的对象，单值）/userInfo（传递多值的时候，使用的数据字典） -> Key
+        NotificationCenter.default.post(name: NSNotification.Name(WBStatusSelectedPhotoNotification), object: self, userInfo: [WBStatusSelectedPhotoIndexPathKey : indexPath, WBStatusSelectedPhotoURLsKey : viewModel!.thumbnailUrls!])
+        
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel?.thumbnailUrls?.count ?? 0
     }

@@ -18,6 +18,7 @@
 		180B54B426325DFB004B8AB7 /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 180B54B326325DFB004B8AB7 /* Emoticons.bundle */; };
 		180B55CC26353EB1004B8AB7 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180B55CB26353EB1004B8AB7 /* UIImage+Extension.swift */; };
 		180B55D226353ED3004B8AB7 /* PicturePickerCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180B55D126353ED3004B8AB7 /* PicturePickerCollectionViewController.swift */; };
+		180B55DB2635581A004B8AB7 /* PhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180B55DA2635581A004B8AB7 /* PhotoBrowserViewController.swift */; };
 		182114F7262D728700FE98FB /* StatusNormalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182114F6262D728700FE98FB /* StatusNormalTableViewCell.swift */; };
 		18211508262E882800FE98FB /* WBrefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18211507262E882800FE98FB /* WBrefreshControl.swift */; };
 		1821150D262E88CB00FE98FB /* WBRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1821150C262E88CB00FE98FB /* WBRefreshView.xib */; };
@@ -87,6 +88,7 @@
 		180B54B326325DFB004B8AB7 /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
 		180B55CB26353EB1004B8AB7 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		180B55D126353ED3004B8AB7 /* PicturePickerCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicturePickerCollectionViewController.swift; sourceTree = "<group>"; };
+		180B55DA2635581A004B8AB7 /* PhotoBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserViewController.swift; sourceTree = "<group>"; };
 		182114F6262D728700FE98FB /* StatusNormalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusNormalTableViewCell.swift; sourceTree = "<group>"; };
 		18211507262E882800FE98FB /* WBrefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBrefreshControl.swift; sourceTree = "<group>"; };
 		1821150C262E88CB00FE98FB /* WBRefreshView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBRefreshView.xib; sourceTree = "<group>"; };
@@ -204,6 +206,14 @@
 				180B55D126353ED3004B8AB7 /* PicturePickerCollectionViewController.swift */,
 			);
 			path = PicturePicker;
+			sourceTree = "<group>";
+		};
+		180B55D626354F9A004B8AB7 /* PhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				180B55DA2635581A004B8AB7 /* PhotoBrowserViewController.swift */,
+			);
+			path = PhotoBrowser;
 			sourceTree = "<group>";
 		};
 		18211506262E87B500FE98FB /* RefreshView */ = {
@@ -329,6 +339,7 @@
 		18D970422615C48C005F0A5A /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				180B55D626354F9A004B8AB7 /* PhotoBrowser */,
 				180B55D026353ED3004B8AB7 /* PicturePicker */,
 				180B549C26325BE7004B8AB7 /* Emoticon */,
 				18D9708A2615E7F3005F0A5A /* Extension */,
@@ -726,6 +737,7 @@
 				180B54A626325BE7004B8AB7 /* EmoticonView.swift in Sources */,
 				1879BC9826218DBC0066DA14 /* StatusViewModel.swift in Sources */,
 				1879BC89262159FF0066DA14 /* Status.swift in Sources */,
+				180B55DB2635581A004B8AB7 /* PhotoBrowserViewController.swift in Sources */,
 				1879BC73262026630066DA14 /* NewFeatureCollectionViewController.swift in Sources */,
 				180B54A726325BE7004B8AB7 /* EmoticonAttachment.swift in Sources */,
 				1879BC93262187A70066DA14 /* User.swift in Sources */,

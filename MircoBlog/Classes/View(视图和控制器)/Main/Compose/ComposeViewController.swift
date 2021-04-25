@@ -116,6 +116,7 @@ class ComposeViewController: UIViewController {
         
 //        print(rect)
     }
+    //MARK: - 视图生命周期
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardChanged(n:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
@@ -125,7 +126,7 @@ class ComposeViewController: UIViewController {
         //注销通知
         NotificationCenter.default.removeObserver(self)
     }
-    //MARK: - 视图生命周期
+    
     override func loadView() {
         view = UIView()
         setupUI()

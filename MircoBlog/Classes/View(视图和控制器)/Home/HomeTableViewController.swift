@@ -28,7 +28,26 @@ class HomeTableViewController: VisitorTableViewController {
         }
         prepareTableView()
         loadData()
+        //注册通知 通知中心始终存在对self有引用，只要监听到通知就会调用block，导致self无法被释放，一定要弱引用
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(WBStatusSelectedPhotoNotification), object: nil, //发送通知的对象
+                                               queue: nil) { [weak self] (n) in
+            //取值
+            guard let indexPath = n.userInfo?[WBStatusSelectedPhotoIndexPathKey] as? IndexPath else {
+                return
+            }
+            guard let urls = n.userInfo?[WBStatusSelectedPhotoURLsKey] as? [URL] else {
+                return
+            }
+            //传递数据到浏览器
+            let vc = PhotoBrowserViewController(urls: urls, indexPath: indexPath)
+            vc.modalPresentationStyle = .fullScreen
+            self?.present(vc, animated: true, completion: nil)
+        }
         
+    }
+    deinit {
+        //注销通知
+        NotificationCenter.default.removeObserver(self)
     }
     ///准备表格
     private func prepareTableView() {
