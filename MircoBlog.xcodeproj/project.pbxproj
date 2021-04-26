@@ -19,6 +19,10 @@
 		180B55CC26353EB1004B8AB7 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180B55CB26353EB1004B8AB7 /* UIImage+Extension.swift */; };
 		180B55D226353ED3004B8AB7 /* PicturePickerCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180B55D126353ED3004B8AB7 /* PicturePickerCollectionViewController.swift */; };
 		180B55DB2635581A004B8AB7 /* PhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180B55DA2635581A004B8AB7 /* PhotoBrowserViewController.swift */; };
+		180B55E32635609A004B8AB7 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180B55E22635609A004B8AB7 /* UIColor+Extension.swift */; };
+		180B55E826356181004B8AB7 /* PhotoBrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180B55E726356181004B8AB7 /* PhotoBrowserCell.swift */; };
+		180B55ED2636A099004B8AB7 /* ProgressImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180B55EC2636A099004B8AB7 /* ProgressImageView.swift */; };
+		180B55FF2636BA0E004B8AB7 /* PhotoBrowserAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180B55FE2636BA0E004B8AB7 /* PhotoBrowserAnimator.swift */; };
 		182114F7262D728700FE98FB /* StatusNormalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182114F6262D728700FE98FB /* StatusNormalTableViewCell.swift */; };
 		18211508262E882800FE98FB /* WBrefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18211507262E882800FE98FB /* WBrefreshControl.swift */; };
 		1821150D262E88CB00FE98FB /* WBRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1821150C262E88CB00FE98FB /* WBRefreshView.xib */; };
@@ -89,6 +93,10 @@
 		180B55CB26353EB1004B8AB7 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		180B55D126353ED3004B8AB7 /* PicturePickerCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicturePickerCollectionViewController.swift; sourceTree = "<group>"; };
 		180B55DA2635581A004B8AB7 /* PhotoBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserViewController.swift; sourceTree = "<group>"; };
+		180B55E22635609A004B8AB7 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		180B55E726356181004B8AB7 /* PhotoBrowserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserCell.swift; sourceTree = "<group>"; };
+		180B55EC2636A099004B8AB7 /* ProgressImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressImageView.swift; sourceTree = "<group>"; };
+		180B55FE2636BA0E004B8AB7 /* PhotoBrowserAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserAnimator.swift; sourceTree = "<group>"; };
 		182114F6262D728700FE98FB /* StatusNormalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusNormalTableViewCell.swift; sourceTree = "<group>"; };
 		18211507262E882800FE98FB /* WBrefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBrefreshControl.swift; sourceTree = "<group>"; };
 		1821150C262E88CB00FE98FB /* WBRefreshView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBRefreshView.xib; sourceTree = "<group>"; };
@@ -212,6 +220,9 @@
 			isa = PBXGroup;
 			children = (
 				180B55DA2635581A004B8AB7 /* PhotoBrowserViewController.swift */,
+				180B55E726356181004B8AB7 /* PhotoBrowserCell.swift */,
+				180B55EC2636A099004B8AB7 /* ProgressImageView.swift */,
+				180B55FE2636BA0E004B8AB7 /* PhotoBrowserAnimator.swift */,
 			);
 			path = PhotoBrowser;
 			sourceTree = "<group>";
@@ -425,6 +436,7 @@
 				1879BA56261D48850066DA14 /* UIImageView+Extension.swift */,
 				1877402D263193CE0080E72D /* UIBarButtonItem+Extension.swift */,
 				180B55CB26353EB1004B8AB7 /* UIImage+Extension.swift */,
+				180B55E22635609A004B8AB7 /* UIColor+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -712,6 +724,7 @@
 				180B54A826325BE7004B8AB7 /* Emoticon.swift in Sources */,
 				1879BA52261D46AC0066DA14 /* UILabel+Extension.swift in Sources */,
 				180B55D226353ED3004B8AB7 /* PicturePickerCollectionViewController.swift in Sources */,
+				180B55FF2636BA0E004B8AB7 /* PhotoBrowserAnimator.swift in Sources */,
 				182114F7262D728700FE98FB /* StatusNormalTableViewCell.swift in Sources */,
 				18D970792615C609005F0A5A /* MessageTableViewController.swift in Sources */,
 				180B54A526325BE7004B8AB7 /* EmoticonManager.swift in Sources */,
@@ -721,6 +734,8 @@
 				1879BC9E2621901B0066DA14 /* StatusTableViewCell.swift in Sources */,
 				1879BC8E262182800066DA14 /* StatusListViewModel.swift in Sources */,
 				18D970742615C600005F0A5A /* DiscoverTableViewController.swift in Sources */,
+				180B55ED2636A099004B8AB7 /* ProgressImageView.swift in Sources */,
+				180B55E32635609A004B8AB7 /* UIColor+Extension.swift in Sources */,
 				185F65A2263165F300EC2B44 /* ComposeViewController.swift in Sources */,
 				1879BC7826204EC90066DA14 /* WelcomeViewController.swift in Sources */,
 				1879BA57261D48850066DA14 /* UIImageView+Extension.swift in Sources */,
@@ -739,6 +754,7 @@
 				1879BC89262159FF0066DA14 /* Status.swift in Sources */,
 				180B55DB2635581A004B8AB7 /* PhotoBrowserViewController.swift in Sources */,
 				1879BC73262026630066DA14 /* NewFeatureCollectionViewController.swift in Sources */,
+				180B55E826356181004B8AB7 /* PhotoBrowserCell.swift in Sources */,
 				180B54A726325BE7004B8AB7 /* EmoticonAttachment.swift in Sources */,
 				1879BC93262187A70066DA14 /* User.swift in Sources */,
 			);

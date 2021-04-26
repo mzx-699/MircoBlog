@@ -8,7 +8,7 @@
 import UIKit
 ///可重用cellId
 private let PicturePickerCellId = "PicturePickerCellId"
-///最大选择照片索引
+///最大选择照片索引 测试时，把临界数值设置小一些，保证能够测试到
 private let PicturePickMaxCount = 9
 ///照片选择控制器
 class PicturePickerCollectionViewController: UICollectionViewController {
@@ -100,7 +100,7 @@ extension PicturePickerCollectionViewController: PicturePickerCellDelegate {
         }
         //删除数据
         pictures.remove(at: indexPath.item)
-        //动画刷新视图
+        //动画刷新视图 重新调用数据行数的数据源方法 内部实现要求，删除一个indexpath，数据源方法如果不返回2 会报错
         collectionView.deleteItems(at: [indexPath])
 //        collectionView.reloadData()
 //        print("删除照片")

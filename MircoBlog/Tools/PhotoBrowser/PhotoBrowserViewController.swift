@@ -6,7 +6,9 @@
 //
 
 import UIKit
-
+import SVProgressHUD
+///可重用标示符
+private let PhotoBrowserViewCellId = "PhotoBrowserViewCellId"
 class PhotoBrowserViewController: UIViewController {
 
     ///照片url数组
@@ -16,11 +18,24 @@ class PhotoBrowserViewController: UIViewController {
     //MARK: - 监听方法
     ///关闭
     @objc private func close() {
+        SVProgressHUD.dismiss()
         dismiss(animated: true, completion: nil)
     }
     ///保存照片
     @objc private func save() {
-        print("save")
+        //拿到图片
+        let cell = collectionView.visibleCells[0] as! PhotoBrowserCell
+        //可能因为网络问题没有图片，需要提示
+        guard let image = cell.imageView.image else {
+            return
+        }
+        //保存图片
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(image:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    //  - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo;
+    @objc private func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: AnyObject?) {
+        let message = error == nil ? "保存成功" : "保存失败"
+        SVProgressHUD.showInfo(withStatus: message)
     }
     //MARK: - init 属性都是必选，后续不用考虑解包
     init(urls: [URL], indexPath: IndexPath) {
@@ -34,28 +49,48 @@ class PhotoBrowserViewController: UIViewController {
         fatalError("init(coder:) hasnot been implemented")
     }
     //MARK: - 视图周期
+    //loadview 和xib&sb等价 主要职责创建视图层次结构，loadview函数执行完毕，view上的元素全部创建完成
+    //如果view == nil，系统会在调用view的getter方法时，自动调用loadview，创建view
     override func loadView() {
         //不需要调用super的loadView loadView的作用就是自定义view，调用super的会消耗性能
         //1.设置根视图
-        let rect = UIScreen.main.bounds
+        var rect = UIScreen.main.bounds
+        rect.size.width += 20
         view = UIView(frame: rect)
         
         setupUI()
     }
+    //是视图加载完成被调用，loadview执行完毕被执行
+    //主要做数据加载或者其他处理
+    //目前很多程序，建立子控件都写在viewdidload
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print(urls)
-        print(currentIndexPath)
+        collectionView.scrollToItem(at: currentIndexPath, at: .centeredHorizontally, animated: false)
+//        print(urls)
+//        print(currentIndexPath)
     }
     
     
     //MARK: - 懒加载控件
-    private lazy var collectionView: UICollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
+    private lazy var collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: PhotoBrowserViewLayout())
     ///关闭
     private lazy var closeButton: UIButton = UIButton(title: "关闭", fontSize: 14, color: UIColor.white, imageName: nil, backColor: UIColor.darkGray)
     ///保存
     private lazy var saveButton: UIButton = UIButton(title: "保存", fontSize: 14, color: UIColor.white, imageName: nil, backColor: UIColor.darkGray)
+    //MARK: - 自定义流水布局
+    private class PhotoBrowserViewLayout: UICollectionViewFlowLayout {
+        override func prepare() {
+            super.prepare()
+            
+            itemSize = collectionView!.bounds.size
+            minimumLineSpacing = 0
+            minimumInteritemSpacing = 0
+            scrollDirection = .horizontal
+            collectionView?.isPagingEnabled = true
+            collectionView?.bounces = false
+            collectionView?.showsHorizontalScrollIndicator = false
+        }
+    }
 
 }
 //MARK: - 设置UI
@@ -80,6 +115,33 @@ extension PhotoBrowserViewController {
         //监听方法
         closeButton.addTarget(self, action: #selector(close), for: .touchUpInside)
         saveButton.addTarget(self, action: #selector(save), for: .touchUpInside)
+        prepareCollectionView()
     }
-    
+    ///准备collectionView
+    private func prepareCollectionView() {
+        //注册可重用cell
+        collectionView.register(PhotoBrowserCell.self, forCellWithReuseIdentifier: PhotoBrowserViewCellId)
+        //设置数据源
+        collectionView.dataSource = self
+    }
+}
+
+//MARK: - UICollectionViewDataSource
+extension PhotoBrowserViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return urls.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoBrowserViewCellId, for: indexPath) as! PhotoBrowserCell
+        cell.imageURL = urls[indexPath.item]
+        cell.photoDelegate = self
+        return cell
+    }
+}
+
+//MARK: - PhotoBrowserCellDelegate
+extension PhotoBrowserViewController: PhotoBrowserCellDelegate {
+    func photoBrowerCellDidTapImage() {
+        close()
+    }
 }

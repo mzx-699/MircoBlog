@@ -71,8 +71,21 @@ class StatusListViewModel {
 //            print("开始缓存图像\(url)")
             //入组，监听后续的block
             group.enter()
+            
+            //refreshCached 第一次发起网络请求，把缓存的图片一个hash值发送给服务器，服务器对比hash值，如果和服务器内容一致，服务器返回的状态码304，表示服务器内容没有变化；如果不是304，会再次发起网络请求，获得更新后的内容，造成调度组不匹配
             //下载图像，缓存自动完成
-            SDWebImageDownloader.shared.downloadImage(with: url) { (image, _, error, _) in
+            /**
+                SDWebImageDownloaderLowPriority = 1 << 0,
+                 SDWebImageDownloaderProgressiveDownload = 1 << 1,  // 带有进度
+                 SDWebImageDownloaderUseNSURLCache = 1 << 2,  // 使用URLCache
+                 SDWebImageDownloaderIgnoreCachedResponse = 1 << 3,  // 不缓存响应
+                 SDWebImageDownloaderContinueInBackground = 1 << 4,  // 支持后台下载
+                 SDWebImageDownloaderHandleCookies = 1 << 5,   // 使用Cookies
+                 SDWebImageDownloaderAllowInvalidSSLCertificates = 1 << 6,  // 允许验证SSL
+                 SDWebImageDownloaderHighPriority = 1 << 7,      // 高权限
+                 SDWebImageDownloaderScaleDownLargeImages = 1 << 8,  // 裁剪大图片
+             */
+            SDWebImageDownloader.shared.downloadImage(with: url, options: [.handleCookies], progress: nil) { (image, _, error, _) in
                 if error != nil {
                     print(error!)
                 }
@@ -84,8 +97,20 @@ class StatusListViewModel {
                 }
                 group.leave()
             }
+//            SDWebImageDownloader.shared.downloadImage(with: url) { (image, _, error, _) in
+//                if error != nil {
+//                    print(error!)
+//                }
+//                //下载单张图片
+//                if let img = image,
+//                   let data = UIImage.pngData(img)() {
+//                    //累加二进制数据长度
+//                    dataLength += data.count
+//                }
+//                group.leave()
+//            }
             
-        }
+        }      
         //监听调度组完成
         group.notify(queue: DispatchQueue.main) {
 //            print("缓存完成\(dataLength / 1024)")

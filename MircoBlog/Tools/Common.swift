@@ -19,7 +19,6 @@ let WBStatusSelectedPhotoURLsKey = "WBStatusSelectedPhotoURLsKey"
 let WBAppearanceTintColor = UIColor.orange
 
 //MARK: - 自定义关键字
-let CGRectZero = CGRect(x: 0, y: 0, width: 0, height: 0)
 //MARK: - 全局函数 可以直接使用
 
 /// 延迟操作，在主线程执行

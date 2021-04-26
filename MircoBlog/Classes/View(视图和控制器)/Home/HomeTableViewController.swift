@@ -40,7 +40,12 @@ class HomeTableViewController: VisitorTableViewController {
             }
             //传递数据到浏览器
             let vc = PhotoBrowserViewController(urls: urls, indexPath: indexPath)
-            vc.modalPresentationStyle = .fullScreen
+            //设置modal类型是自定义类型
+            vc.modalPresentationStyle = .custom
+            //设置动画代理
+            vc.transitioningDelegate = self?.photoBrowsweAnimator
+            
+//            vc.modalPresentationStyle = .fullScreen
             self?.present(vc, animated: true, completion: nil)
         }
         
@@ -91,10 +96,14 @@ class HomeTableViewController: VisitorTableViewController {
         }
     }
     //MARK: - 懒加载控件
+    //上拉刷新
     private lazy var pullupView: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         return indicator
     }()
+    ///照片查看专场动画代理
+    private lazy var photoBrowsweAnimator: PhotoBrowserAnimator = PhotoBrowserAnimator()
+    
 }
 
 //MARK: - 数据源方法
