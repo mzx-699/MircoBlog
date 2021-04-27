@@ -109,7 +109,7 @@ extension PhotoBrowserViewController {
         }
         saveButton.snp.makeConstraints { (make) in
             make.bottom.equalTo(closeButton.snp.bottom)
-            make.right.equalTo(view.snp.right).offset(-8)
+            make.right.equalTo(view.snp.right).offset(-28)
             make.size.equalTo(closeButton.snp.size)
         }
         //监听方法
@@ -143,5 +143,27 @@ extension PhotoBrowserViewController: UICollectionViewDataSource {
 extension PhotoBrowserViewController: PhotoBrowserCellDelegate {
     func photoBrowerCellDidTapImage() {
         close()
+    }
+}
+//MARK: - PhotoBrowserDismissDelegate
+extension PhotoBrowserViewController: PhotoBrowserDismissDelegate {
+    
+    func imageViewForDismiss() -> UIImageView {
+        let iv = UIImageView()
+        
+        //设置内容填充模式
+        iv.contentMode = .scaleAspectFill
+        iv.clipsToBounds = true
+        
+        //设置图像 直接从当前显示的cell中获取
+        let cell = collectionView.visibleCells[0] as! PhotoBrowserCell
+        iv.image = cell.imageView.image
+        
+        //设置位置 坐标转换 由父视图进行转换
+        iv.frame = cell.scrollView.convert(cell.imageView.frame, to: UIApplication.shared.windows.first{$0.isKeyWindow})
+        return iv
+    }
+    func indexPathForDismiss() -> IndexPath {
+        return collectionView.indexPathsForVisibleItems[0]
     }
 }

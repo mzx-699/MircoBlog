@@ -38,13 +38,22 @@ class HomeTableViewController: VisitorTableViewController {
             guard let urls = n.userInfo?[WBStatusSelectedPhotoURLsKey] as? [URL] else {
                 return
             }
+            //判断cell是否遵守了展现动画协议
+            guard let cell = n.object as? PhotoBrowserPresentDelegate else {
+                return
+            }
             //传递数据到浏览器
             let vc = PhotoBrowserViewController(urls: urls, indexPath: indexPath)
             //设置modal类型是自定义类型
             vc.modalPresentationStyle = .custom
             //设置动画代理
             vc.transitioningDelegate = self?.photoBrowsweAnimator
-            
+            //设置animator的代理参数
+            self?.photoBrowsweAnimator.setDelegateParams(presentDelegate: cell, indexPath: indexPath, dismissDelegate: vc)
+            //参数设置所有权交给调用方，一旦调用方失误漏传参数，可能造成错误；通过函数进行统一设置，保证传参正确，保证封装的完整性
+            //self?.photoBrowsweAnimator.presentDelegate = cell
+            //self?.photoBrowsweAnimator.indexPath = indexPath
+            //self?.photoBrowsweAnimator.dismissDelegate = vc
 //            vc.modalPresentationStyle = .fullScreen
             self?.present(vc, animated: true, completion: nil)
         }

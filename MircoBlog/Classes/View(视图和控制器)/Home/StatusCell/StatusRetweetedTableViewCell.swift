@@ -58,5 +58,6 @@ extension StatusRetweetedTableViewCell {
             make.width.equalTo(300)
             make.height.equalTo(90)
         }
+        pictureView.backgroundColor = UIColor.clear
     }
 }

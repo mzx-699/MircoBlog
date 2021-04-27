@@ -55,6 +55,11 @@ class StatusPictureView: UICollectionView {
 extension StatusPictureView: UICollectionViewDataSource, UICollectionViewDelegate {
     ///选中照片
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //动画转场协议
+        //测试
+//        photoBrowserPresentFromRect(indexPath: indexPath)
+//        photoBrowserPresentToRect(indexPath: indexPath)
+
 //        print("点击照片\(indexPath)\(viewModel?.thumbnailUrls)")
         //传递数据 当前url的数组/当前用户选中的索引
         //通知组成 名字（通知中心监听）/object（发送通知同时传递的对象，单值）/userInfo（传递多值的时候，使用的数据字典） -> Key
@@ -67,12 +72,62 @@ extension StatusPictureView: UICollectionViewDataSource, UICollectionViewDelegat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StatusPictureCellId, for: indexPath) as! StatusPicutreCell
         cell.imageUrl = viewModel?.thumbnailUrls![indexPath.item]
+        cell.backgroundColor = UIColor.clear
 //        cell.backgroundColor = UIColor.red
         return cell
     }
 }
 
-
+//MARK: - PhotoBrowserPresentDelegate
+extension StatusPictureView: PhotoBrowserPresentDelegate {
+    func photoBrowserPresentFromRect(indexPath: IndexPath) -> CGRect {
+        //根据indexPath获取用户选择的cell
+        let cell = cellForItem(at: indexPath)!
+        //通过cell知道cell对应在屏幕上的准确位置
+        //在不同的视图之间坐标系的转换 由self的父视图进行转换
+        //由collectionview将cell的frame位置转换成keywindow对应的frame位置
+        let rect = convert(cell.frame, to: UIApplication.shared.windows.first{$0.isKeyWindow})
+        //测试
+//        let iv = imageViewForPresent(indexPath: indexPath)
+//        iv.frame = rect
+//        UIApplication.shared.windows.first{$0.isKeyWindow}?.addSubview(iv)
+        return rect
+    }
+    func photoBrowserPresentToRect(indexPath: IndexPath) -> CGRect {
+        //根据缩略图大小，等比例计算位置
+        guard let key = viewModel?.thumbnailUrls?[indexPath.item].absoluteString else {
+            return .zero
+        }
+        //从本地直接获取缓存图片
+        guard let image = SDImageCache.shared.imageFromDiskCache(forKey: key) else {
+            return .zero
+        }
+        //根据图像大小计算全屏大小
+        let w = UIScreen.main.bounds.width
+        let h = image.size.height * w / image.size.width
+        //对高度进行额外处理
+        let screenHeight = UIScreen.main.bounds.height
+        var y:CGFloat = 0
+        //图片短 需要垂直居中
+        if h < screenHeight {
+            y = (screenHeight - h) * 0.5
+        }
+        
+        return CGRect(x: 0, y: y, width: w, height: h)
+    }
+    //创建imageview参与动画，代替原来位置的缩略图，来作为最初的图像
+    func imageViewForPresent(indexPath: IndexPath) -> UIImageView {
+        let iv = UIImageView()
+        //设置内容填充模式
+        iv.contentMode = .scaleAspectFill
+        iv.clipsToBounds = true
+        //设置图像（缩略图） 如果已经存在本地缓存，不会发起网络请求
+        if let url = viewModel?.thumbnailUrls?[indexPath.item] {
+            iv.setImageWith(url)
+        }
+        return iv
+    }
+}
 //MARK: - 计算视图大小
 extension StatusPictureView {
     private func calcViewSize() -> CGSize {
@@ -158,7 +213,7 @@ private class StatusPicutreCell: UICollectionViewCell {
         let iv = UIImageView()
         //设置填充模式
         iv.contentMode = .scaleAspectFill
-        iv.backgroundColor = UIColor.lightGray
+        iv.backgroundColor = UIColor.clear
         //需要裁切图片
         iv.clipsToBounds = true
         return iv
@@ -173,3 +228,4 @@ private class StatusPicutreCell: UICollectionViewCell {
         }
     }
 }
+
