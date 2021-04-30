@@ -46,6 +46,14 @@
 		1879BC9E2621901B0066DA14 /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879BC9D2621901B0066DA14 /* StatusTableViewCell.swift */; };
 		1879BCA62621904A0066DA14 /* StatusTableViewCellTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879BCA52621904A0066DA14 /* StatusTableViewCellTopView.swift */; };
 		1879BCAB262190760066DA14 /* StatusTableViewCellBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879BCAA262190760066DA14 /* StatusTableViewCellBottomView.swift */; };
+		18B17472263BE7EA00AF4459 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B17468263BE7E900AF4459 /* FMDatabaseQueue.m */; };
+		18B17473263BE7EA00AF4459 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B1746B263BE7E900AF4459 /* FMDatabaseAdditions.m */; };
+		18B17474263BE7EA00AF4459 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B1746C263BE7E900AF4459 /* FMDatabase.m */; };
+		18B17475263BE7EA00AF4459 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B17470263BE7E900AF4459 /* FMDatabasePool.m */; };
+		18B17476263BE7EA00AF4459 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B17471263BE7E900AF4459 /* FMResultSet.m */; };
+		18B1747B263BE80F00AF4459 /* SQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B1747A263BE80F00AF4459 /* SQLiteManager.swift */; };
+		18B17487263BE8A400AF4459 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B17483263BE88D00AF4459 /* libsqlite3.tbd */; };
+		18B1748D263BEBF200AF4459 /* db.sql in Resources */ = {isa = PBXBuildFile; fileRef = 18B1748C263BEBF200AF4459 /* db.sql */; };
 		18D96FFE2615B4D9005F0A5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D96FFD2615B4D9005F0A5A /* AppDelegate.swift */; };
 		18D970072615B4DF005F0A5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D970062615B4DF005F0A5A /* Assets.xcassets */; };
 		18D9700A2615B4DF005F0A5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D970082615B4DF005F0A5A /* LaunchScreen.storyboard */; };
@@ -120,6 +128,21 @@
 		1879BC9D2621901B0066DA14 /* StatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTableViewCell.swift; sourceTree = "<group>"; };
 		1879BCA52621904A0066DA14 /* StatusTableViewCellTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTableViewCellTopView.swift; sourceTree = "<group>"; };
 		1879BCAA262190760066DA14 /* StatusTableViewCellBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTableViewCellBottomView.swift; sourceTree = "<group>"; };
+		18B17467263BE7E900AF4459 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		18B17468263BE7E900AF4459 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		18B17469263BE7E900AF4459 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		18B1746A263BE7E900AF4459 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		18B1746B263BE7E900AF4459 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		18B1746C263BE7E900AF4459 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		18B1746D263BE7E900AF4459 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		18B1746E263BE7E900AF4459 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		18B1746F263BE7E900AF4459 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		18B17470263BE7E900AF4459 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		18B17471263BE7E900AF4459 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		18B1747A263BE80F00AF4459 /* SQLiteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteManager.swift; sourceTree = "<group>"; };
+		18B1747F263BE84600AF4459 /* Weibo-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Weibo-Bridge.h"; sourceTree = "<group>"; };
+		18B17483263BE88D00AF4459 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		18B1748C263BEBF200AF4459 /* db.sql */ = {isa = PBXFileReference; lastKnownFileType = text; path = db.sql; sourceTree = "<group>"; };
 		18D96FFA2615B4D9005F0A5A /* MircoBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MircoBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D96FFD2615B4D9005F0A5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18D970062615B4DF005F0A5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -154,6 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18B17487263BE8A400AF4459 /* libsqlite3.tbd in Frameworks */,
 				B4A239E73604F24F989E2C5D /* Pods_MircoBlog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,6 +298,32 @@
 			path = StatusCell;
 			sourceTree = "<group>";
 		};
+		18B17466263BE7E900AF4459 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				18B17467263BE7E900AF4459 /* FMDatabase.h */,
+				18B17468263BE7E900AF4459 /* FMDatabaseQueue.m */,
+				18B17469263BE7E900AF4459 /* FMResultSet.h */,
+				18B1746A263BE7E900AF4459 /* FMDatabasePool.h */,
+				18B1746B263BE7E900AF4459 /* FMDatabaseAdditions.m */,
+				18B1746C263BE7E900AF4459 /* FMDatabase.m */,
+				18B1746D263BE7E900AF4459 /* FMDatabaseQueue.h */,
+				18B1746E263BE7E900AF4459 /* FMDB.h */,
+				18B1746F263BE7E900AF4459 /* FMDatabaseAdditions.h */,
+				18B17470263BE7E900AF4459 /* FMDatabasePool.m */,
+				18B17471263BE7E900AF4459 /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
+		18B1748B263BE8E600AF4459 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				18B1748C263BEBF200AF4459 /* db.sql */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		18D96FF12615B4D9005F0A5A = {
 			isa = PBXGroup;
 			children = (
@@ -299,9 +349,11 @@
 		18D96FFC2615B4D9005F0A5A /* MircoBlog */ = {
 			isa = PBXGroup;
 			children = (
+				18B1748B263BE8E600AF4459 /* Resource */,
 				18D970422615C48C005F0A5A /* Tools */,
 				18D970402615C48C005F0A5A /* Classes */,
 				18D96FFD2615B4D9005F0A5A /* AppDelegate.swift */,
+				18B1747F263BE84600AF4459 /* Weibo-Bridge.h */,
 				18D970062615B4DF005F0A5A /* Assets.xcassets */,
 				18D970082615B4DF005F0A5A /* LaunchScreen.storyboard */,
 				18D9700B2615B4DF005F0A5A /* Info.plist */,
@@ -350,12 +402,14 @@
 		18D970422615C48C005F0A5A /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				18B17466263BE7E900AF4459 /* fmdb */,
 				180B55D626354F9A004B8AB7 /* PhotoBrowser */,
 				180B55D026353ED3004B8AB7 /* PicturePicker */,
 				180B549C26325BE7004B8AB7 /* Emoticon */,
 				18D9708A2615E7F3005F0A5A /* Extension */,
 				1879BA5B261D537E0066DA14 /* Common.swift */,
 				1879BBBF261DB2EB0066DA14 /* NetworkTools.swift */,
+				18B1747A263BE80F00AF4459 /* SQLiteManager.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -466,6 +520,7 @@
 		FD77E0870895023CE527B36B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18B17483263BE88D00AF4459 /* libsqlite3.tbd */,
 				EA178B41466B733B8FE7E2ED /* Pods_MircoBlog.framework */,
 				1DF34E8C8B4E645D00C559CF /* Pods_MircoBlog_MircoBlogUITests.framework */,
 				DC1FD9EBD02304DE2930855B /* Pods_MircoBlogTests.framework */,
@@ -581,6 +636,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18B1748D263BEBF200AF4459 /* db.sql in Resources */,
 				18D9700A2615B4DF005F0A5A /* LaunchScreen.storyboard in Resources */,
 				180B54B426325DFB004B8AB7 /* Emoticons.bundle in Resources */,
 				18D970072615B4DF005F0A5A /* Assets.xcassets in Resources */,
@@ -714,18 +770,22 @@
 			files = (
 				180B55CC26353EB1004B8AB7 /* UIImage+Extension.swift in Sources */,
 				18736ECB262D638A0069433E /* StatusRetweetedTableViewCell.swift in Sources */,
+				18B17473263BE7EA00AF4459 /* FMDatabaseAdditions.m in Sources */,
 				180B54AF26325BFE004B8AB7 /* String+Emoji.swift in Sources */,
 				18211508262E882800FE98FB /* WBrefreshControl.swift in Sources */,
 				180B54A926325BE7004B8AB7 /* EmoticonPackage.swift in Sources */,
+				18B1747B263BE80F00AF4459 /* SQLiteManager.swift in Sources */,
 				18D9707E2615C610005F0A5A /* ProfileTableViewController.swift in Sources */,
 				1879BCAB262190760066DA14 /* StatusTableViewCellBottomView.swift in Sources */,
 				18D9706A2615C5E7005F0A5A /* HomeTableViewController.swift in Sources */,
 				1879BBCA261DB4250066DA14 /* OAtuhViewController.swift in Sources */,
 				180B54A826325BE7004B8AB7 /* Emoticon.swift in Sources */,
+				18B17475263BE7EA00AF4459 /* FMDatabasePool.m in Sources */,
 				1879BA52261D46AC0066DA14 /* UILabel+Extension.swift in Sources */,
 				180B55D226353ED3004B8AB7 /* PicturePickerCollectionViewController.swift in Sources */,
 				180B55FF2636BA0E004B8AB7 /* PhotoBrowserAnimator.swift in Sources */,
 				182114F7262D728700FE98FB /* StatusNormalTableViewCell.swift in Sources */,
+				18B17474263BE7EA00AF4459 /* FMDatabase.m in Sources */,
 				18D970792615C609005F0A5A /* MessageTableViewController.swift in Sources */,
 				180B54A526325BE7004B8AB7 /* EmoticonManager.swift in Sources */,
 				1879BA5C261D537E0066DA14 /* Common.swift in Sources */,
@@ -747,11 +807,13 @@
 				1879BC1F261F26090066DA14 /* UserAccountViewModel.swift in Sources */,
 				18D9708C2615E80F005F0A5A /* UIButton+Extension.swift in Sources */,
 				180B54AA26325BE7004B8AB7 /* UITextView+Emoticon.swift in Sources */,
+				18B17472263BE7EA00AF4459 /* FMDatabaseQueue.m in Sources */,
 				1879BC14261EE9CC0066DA14 /* UserAccount.swift in Sources */,
 				18711FDE26293827008C5A49 /* StatusPictureView.swift in Sources */,
 				180B54A626325BE7004B8AB7 /* EmoticonView.swift in Sources */,
 				1879BC9826218DBC0066DA14 /* StatusViewModel.swift in Sources */,
 				1879BC89262159FF0066DA14 /* Status.swift in Sources */,
+				18B17476263BE7EA00AF4459 /* FMResultSet.m in Sources */,
 				180B55DB2635581A004B8AB7 /* PhotoBrowserViewController.swift in Sources */,
 				1879BC73262026630066DA14 /* NewFeatureCollectionViewController.swift in Sources */,
 				180B55E826356181004B8AB7 /* PhotoBrowserCell.swift in Sources */,
@@ -936,6 +998,7 @@
 				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = HDUGWKJ.MircoBlog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MircoBlog/Weibo-Bridge.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -958,6 +1021,7 @@
 				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = HDUGWKJ.MircoBlog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MircoBlog/Weibo-Bridge.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

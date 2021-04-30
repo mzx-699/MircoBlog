@@ -165,6 +165,6 @@ extension HomeTableViewController {
         }
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("\(indexPath.row) : \(listViewModel.statusList[indexPath.row].rowHeight)")
+//        print("\(indexPath.row) : \(listViewModel.statusList[indexPath.row].rowHeight)")
     }
 }
