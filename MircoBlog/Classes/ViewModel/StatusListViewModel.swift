@@ -22,6 +22,8 @@ class StatusListViewModel {
         let since_id = isPullup ? 0 : statusList.first?.status.id ?? 0
         //上拉刷新 比数组中最后一条微博id小的微博
         let max_id = isPullup ? statusList.last?.status.id ?? 0 : 0
+        // ---检查本地缓存数据----
+        StatusDAL.checkCacheDate(since_id: since_id, max_id: max_id)
         NetworkTools.sharedTools.loadStatus(since_id: since_id, max_id: max_id) { (result, error) in
             if error != nil {
                 print("出错了\(error!)")
@@ -34,6 +36,8 @@ class StatusListViewModel {
                 finished(false)
                 return
             }
+            //----缓存网络数据-----
+            StatusDAL.saveCacheDate(array: array)
             //遍历字典数据，字典转模型
             //1.可变的数据
             var dataList = [StatusViewModel]()
@@ -49,7 +53,7 @@ class StatusListViewModel {
             else {
                 self.statusList = dataList + self.statusList
             }
-            print("刷新出\(dataList.count)")
+//            print("刷新出\(dataList.count)")
 //            print(self.statusList)
 //            //完成回调
 //            finished(true)

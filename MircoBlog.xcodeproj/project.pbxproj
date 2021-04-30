@@ -54,6 +54,7 @@
 		18B1747B263BE80F00AF4459 /* SQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B1747A263BE80F00AF4459 /* SQLiteManager.swift */; };
 		18B17487263BE8A400AF4459 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B17483263BE88D00AF4459 /* libsqlite3.tbd */; };
 		18B1748D263BEBF200AF4459 /* db.sql in Resources */ = {isa = PBXBuildFile; fileRef = 18B1748C263BEBF200AF4459 /* db.sql */; };
+		18B17492263BF09100AF4459 /* StatusDAL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B17491263BF09100AF4459 /* StatusDAL.swift */; };
 		18D96FFE2615B4D9005F0A5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D96FFD2615B4D9005F0A5A /* AppDelegate.swift */; };
 		18D970072615B4DF005F0A5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D970062615B4DF005F0A5A /* Assets.xcassets */; };
 		18D9700A2615B4DF005F0A5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D970082615B4DF005F0A5A /* LaunchScreen.storyboard */; };
@@ -143,6 +144,7 @@
 		18B1747F263BE84600AF4459 /* Weibo-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Weibo-Bridge.h"; sourceTree = "<group>"; };
 		18B17483263BE88D00AF4459 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		18B1748C263BEBF200AF4459 /* db.sql */ = {isa = PBXFileReference; lastKnownFileType = text; path = db.sql; sourceTree = "<group>"; };
+		18B17491263BF09100AF4459 /* StatusDAL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusDAL.swift; sourceTree = "<group>"; };
 		18D96FFA2615B4D9005F0A5A /* MircoBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MircoBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D96FFD2615B4D9005F0A5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18D970062615B4DF005F0A5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 				1879BC1E261F26090066DA14 /* UserAccountViewModel.swift */,
 				1879BC8D262182800066DA14 /* StatusListViewModel.swift */,
 				1879BC9726218DBC0066DA14 /* StatusViewModel.swift */,
+				18B17491263BF09100AF4459 /* StatusDAL.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -779,6 +782,7 @@
 				1879BCAB262190760066DA14 /* StatusTableViewCellBottomView.swift in Sources */,
 				18D9706A2615C5E7005F0A5A /* HomeTableViewController.swift in Sources */,
 				1879BBCA261DB4250066DA14 /* OAtuhViewController.swift in Sources */,
+				18B17492263BF09100AF4459 /* StatusDAL.swift in Sources */,
 				180B54A826325BE7004B8AB7 /* Emoticon.swift in Sources */,
 				18B17475263BE7EA00AF4459 /* FMDatabasePool.m in Sources */,
 				1879BA52261D46AC0066DA14 /* UILabel+Extension.swift in Sources */,
