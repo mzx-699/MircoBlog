@@ -9,7 +9,10 @@ import UIKit
 import SDWebImage
 import SVProgressHUD
 protocol PhotoBrowserCellDelegate: NSObjectProtocol {
-    func photoBrowerCellDidTapImage()
+    ///视图控制器将要关闭
+    func photoBrowerCellShouldDidDismiss()
+    ///通知代理缩放比例
+    func photoBrowserCellDidZoom(scale: CGFloat)
 }
 ///照片查看cell
 class PhotoBrowserCell: UICollectionViewCell {
@@ -19,7 +22,7 @@ class PhotoBrowserCell: UICollectionViewCell {
      手势识别是对touch的一个封装，uiscrollview支持捏合手势，一般做过手势监听的控件，会屏蔽掉touch事件
      */
     @objc private func tapImage() {
-        photoDelegate?.photoBrowerCellDidTapImage()
+        photoDelegate?.photoBrowerCellShouldDidDismiss()
     }
 
     //MARK: - 图像地址
@@ -165,6 +168,12 @@ extension PhotoBrowserCell: UIScrollViewDelegate {
     ///   - view: 被缩放的视图
     ///   - scale: 被缩放的比例
     func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+        //如果缩放比例小于1 直接关闭
+        if scale < 1 {
+            photoDelegate?.photoBrowerCellShouldDidDismiss()
+            return
+        }
+
         //bouns是固定的
         var offsetY = (scrollView.bounds.height - view!.frame.height) * 0.5
         offsetY = offsetY < 0 ? 0 : offsetY
@@ -181,6 +190,7 @@ extension PhotoBrowserCell: UIScrollViewDelegate {
         定义控件位置 frame = center + bounds * transform
      */
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
-        
+        //通知代理缩放比例
+        photoDelegate?.photoBrowserCellDidZoom(scale: imageView.transform.a)
     }
 }

@@ -22,22 +22,13 @@ class StatusListViewModel {
         let since_id = isPullup ? 0 : statusList.first?.status.id ?? 0
         //上拉刷新 比数组中最后一条微博id小的微博
         let max_id = isPullup ? statusList.last?.status.id ?? 0 : 0
-        // ---检查本地缓存数据----
-        StatusDAL.checkCacheDate(since_id: since_id, max_id: max_id)
-        NetworkTools.sharedTools.loadStatus(since_id: since_id, max_id: max_id) { (result, error) in
-            if error != nil {
-                print("出错了\(error!)")
+        StatusDAL.loadStatus(since_id: since_id, max_id: max_id) { (array) in
+            //如果数组为nil 表示有错误
+            guard let array = array else {
                 finished(false)
                 return
             }
-            //判断数据结构是否正确
-            guard let array = (result as! [String : Any])["statuses"] as? [[String : Any]] else{
-                print("数据格式错误")
-                finished(false)
-                return
-            }
-            //----缓存网络数据-----
-            StatusDAL.saveCacheDate(array: array)
+            
             //遍历字典数据，字典转模型
             //1.可变的数据
             var dataList = [StatusViewModel]()

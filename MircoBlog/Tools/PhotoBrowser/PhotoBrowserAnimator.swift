@@ -127,6 +127,11 @@ extension PhotoBrowserAnimator: UIViewControllerAnimatedTransitioning {
         //将视图添加到容器视图中
         transitionContext.containerView.addSubview(toView!)
         
+        //获取目标控制器 照片查看控制器
+        let toVC = transitionContext.viewController(forKey: .to) as! PhotoBrowserViewController
+        //隐藏控制器
+        toVC.collectionView.isHidden = true
+        
         //图像视图
         //能够参与动画的图像视图/起始位置/目标位置
         let iv = presentDelegate.imageViewForPresent(indexPath: indexPath)
@@ -144,6 +149,8 @@ extension PhotoBrowserAnimator: UIViewControllerAnimatedTransitioning {
         } completion: { (result) in
             //删除图像视图
             iv.removeFromSuperview()
+            //显示目标控制器的collectionview 加载完成后显示
+            toVC.collectionView.isHidden = false
             //告诉系统转场动画完成
             transitionContext.completeTransition(result)
         }

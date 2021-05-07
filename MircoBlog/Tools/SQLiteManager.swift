@@ -32,7 +32,7 @@ class SQLiteManager {
         var array = [[String : Any]]()
         //同步执行数据库查询
         SQLiteManager.sharedManager.queue.inDatabase { (db) in
-            print(Thread.current)
+//            print(Thread.current)
             guard let result = db.executeQuery(sql, withArgumentsIn: []) else {
                 print("failed")
                 return

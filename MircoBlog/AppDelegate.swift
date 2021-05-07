@@ -33,8 +33,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let vc = notification.object != nil ? WelcomeViewController() : MainViewController()
             self?.window?.rootViewController = vc
         }
-        SQLiteManager.sharedManager
+        
         return true
+    }
+    //应用程序进入后台
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        //清除数据库缓存
+        StatusDAL.clearDataCache()
     }
     deinit {
         //注销通知 --注销指定的通知
