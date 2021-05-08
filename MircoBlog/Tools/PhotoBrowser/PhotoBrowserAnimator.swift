@@ -147,6 +147,7 @@ extension PhotoBrowserAnimator: UIViewControllerAnimatedTransitioning {
             iv.frame = presentDelegate.photoBrowserPresentToRect(indexPath: indexPath)
             toView?.alpha = 1
         } completion: { (result) in
+            
             //删除图像视图
             iv.removeFromSuperview()
             //显示目标控制器的collectionview 加载完成后显示

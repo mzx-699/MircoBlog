@@ -16,7 +16,7 @@
 import Foundation
 ///专门负责处理本地 SQLite和网络数据 --- 数据访问层 Data Access Layer
 ///最大缓存时间
-private let maxCacheDateTime: TimeInterval = 60 //7 * 24 * 60 * 60
+private let maxCacheDateTime: TimeInterval = 7 * 24 * 60 * 60
 class StatusDAL {
     /**
      清理数据缓存不能交给用户操作

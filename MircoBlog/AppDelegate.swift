@@ -6,16 +6,21 @@
 //
 
 import UIKit
-
+import AFNetworking
+import Alamofire
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        //设置afn 通过afn发起网络请求时，在状态栏显示菊花加载
+        // TODO: - 没反应
+        AFNetworkActivityIndicatorManager.shared().isEnabled = true
         setupAppearance()
         //测试归档
 //        print(UserAccountViewModel.sharedUserAccount.account)
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
         window?.rootViewController = defaultRootViewController

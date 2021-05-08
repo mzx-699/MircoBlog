@@ -20,4 +20,5 @@ target 'MircoBlog' do
   pod 'SVProgressHUD'
   pod 'SnapKit'
   pod 'UICollectionViewLeftAlignedLayout'
+  pod 'Alamofire'
 end
