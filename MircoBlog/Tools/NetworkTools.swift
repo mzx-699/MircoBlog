@@ -6,18 +6,11 @@
 //
 
 import UIKit
-import AFNetworking
+import Alamofire
 //实际开发中，在发现需要重构时，需要及时重构；出现了相同的代码
-///枚举
-enum SSRequestMethod: String {
-    case GET = "GET"
-    case POST = "POST"
-}
 
 //MARK: - 网络工具
-class NetworkTools: AFHTTPSessionManager {
-    
-
+class NetworkTools {
     
     //MARK: - 应用程序信息
     private let appKey: String = "3197082990"
@@ -28,12 +21,7 @@ class NetworkTools: AFHTTPSessionManager {
     typealias SSRequestCallBack = (_ result: Any?, _ error: Error?) -> ()
     
     
-    static let sharedTools: NetworkTools = { () -> NetworkTools in 
-        let tools = NetworkTools(baseURL: nil)
-        //设置反序列化数据格式 系统会自动将oc中的nsset转换成set
-        tools.responseSerializer.acceptableContentTypes?.insert("text/html")
-        return tools
-    }()
+    static let sharedTools = NetworkTools()
     
     //返回token字典
 //    private var tokenDict: [String: Any]? {
@@ -75,7 +63,7 @@ extension NetworkTools {
             
 //            print(params!)
             //发起网络请求
-            tokenRequest(method: .POST, URLString: urlString, parameters: &params, finished: finished)
+            tokenRequest(method: .post, URLString: urlString, parameters: &params, finished: finished)
         }
         else {
             let data = UIImage.pngData(image!)()
@@ -109,7 +97,7 @@ extension NetworkTools {
         let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
         
         //发起网络请求
-        tokenRequest(method: .GET, URLString: urlString, parameters: &params, finished: finished)
+        tokenRequest(method: .get, URLString: urlString, parameters: &params, finished: finished)
     }
 }
 //MARK: - 用户相关方法
@@ -128,7 +116,7 @@ extension NetworkTools {
         var params: [String : Any]? = [String : Any]()
         let urlString = "https://api.weibo.com/2/users/show.json"
         params!["uid"] = uid
-        tokenRequest(method: .GET, URLString: urlString, parameters: &params, finished: finished)
+        tokenRequest(method: .get, URLString: urlString, parameters: &params, finished: finished)
         
     }
 }
@@ -151,7 +139,7 @@ extension NetworkTools {
             "grant_type": "authorization_code",
             "code": code,
             "redirect_uri": redirectUrl]
-        request(method: .POST, URLString: urlString, parameters: params, finished: finished)
+        request(method: .post, URLString: urlString, parameters: params, finished: finished)
         //测试返回的数据内容，AFN默认的响应格式是JSON，会直接反序列化
         //确认数据格式问题
         //1.设置相应数据格式是二进制
@@ -189,7 +177,7 @@ extension NetworkTools {
         return true
     }
     /// 只用token进行网络请求
-    private func tokenRequest(method: SSRequestMethod, URLString: String, parameters: inout [String: Any]?, finished: @escaping SSRequestCallBack) {
+    private func tokenRequest(method: HTTPMethod, URLString: String, parameters: inout [String: Any]?, finished: @escaping SSRequestCallBack) {
         //如果追加token失败，直接返回
         if !appendToken(parameters: &parameters) {
             finished(nil, NSError(domain: "mzx.error", code: -1001, userInfo: ["message" : "token为空"]))
@@ -213,24 +201,36 @@ extension NetworkTools {
         //发起网络请求
         request(method: method, URLString: URLString, parameters: parameters, finished: finished)
     }
-    func request(method: SSRequestMethod, URLString: String, parameters: [String: Any]?, finished: @escaping SSRequestCallBack) {
-        //定义成功回调
-        let success = { (task: URLSessionDataTask, result: Any?) in
-            finished(result, nil)
-            
-        }
-        //定义失败回调
-        let failure = { (task: URLSessionDataTask?, error: Error) in
-            print(error)
-            finished(nil, error)
+    func request(method: HTTPMethod, URLString: String, parameters: [String: Any]?, finished: @escaping SSRequestCallBack) {
+        
+        AF.request(URLString, method: method, parameters: parameters).responseJSON { (response) in
+            switch response.result {
+            case .failure(let error):
+                print("网络请求失败 --- \(error)")
+                finished(response.value, response.error)
+            case .success(_):
+                print("加载成功")
+                finished(response.value, response.error)
+            }
         }
         
-        if method == .GET {
-            self.get(URLString, parameters: parameters, headers: nil, progress: nil, success: success, failure: failure)
-        }
-        else {
-            self.post(URLString, parameters: parameters, headers: nil, progress: nil, success: success, failure: failure)
-        }
+//        //定义成功回调
+//        let success = { (task: URLSessionDataTask, result: Any?) in
+//            finished(result, nil)
+//
+//        }
+//        //定义失败回调
+//        let failure = { (task: URLSessionDataTask?, error: Error) in
+//            print(error)
+//            finished(nil, error)
+//        }
+//
+//        if method == .GET {
+//            self.get(URLString, parameters: parameters, headers: nil, progress: nil, success: success, failure: failure)
+//        }
+//        else {
+//            self.post(URLString, parameters: parameters, headers: nil, progress: nil, success: success, failure: failure)
+//        }
         
 
 
@@ -243,21 +243,48 @@ extension NetworkTools {
             finished(nil, NSError(domain: "mzx.error", code: -1001, userInfo: ["message" : "token为空"]))
             return
         }
-        
-        post(URLString, parameters: parameters, headers: nil) { (formData) in
-            //data 要上传的二进制数据，
-            //name 服务器定义的字段名字 - 后台接口文档会显示；
-            //fileName是保存在服务器的文件名，但是：通常可以乱写，后台会做后续的处理，根据上传的文件，生成缩略图，中等图，高清图，是http协议定义的属性
-            //mimeType/contentType 客户端告诉服务器，二进制数据的准确类型 - 大类型/小类型 image/ipg,image/git,image/png; text/plain,text/html, application/json 如果不想告诉服务器准确类型 application/octet-stream
-            formData.appendPart(withFileData: data, name: name, fileName: "xxx", mimeType: "application/octet-stream")
-        } progress: { (_) in
+        let para = parameters
+//        print(para)
+        //appendBody 方法中，如果带 mimeType 是上传文件；不带 拼接普通二进制参数方法
+        AF.upload(multipartFormData: { (formData) in
+            formData.append(data, withName: name, fileName: "xxx", mimeType: "application/octet-stream")
+            //遍历参数字典，生成参数数据
+            if para != nil {
+                for (k, v) in para! {
+                    let str = v as! String
+                    let strData = str.data(using: .utf8)
+                    formData.append(strData!,//v的二进制数据
+                                    withName: k)
+                }
+            }
             
-        } success: { (_, result) in
-            finished(result, nil)
-        } failure: { (_, error) in
-            finished(nil, error)
+        },
+        to: URLString,
+        usingThreshold: 5 * 1024 * 1024, //最大长度
+        method: .post).responseJSON { (response) in
+            switch response.result {
+            case .failure(let error):
+                print("上传失败 --- \(error)")
+                finished(response.value, response.error)
+            case .success(_):
+                print("上传成功")
+                finished(response.value, response.error)
+            }
         }
-    
-
+//        post(URLString, parameters: parameters, headers: nil) { (formData) in
+//            //data 要上传的二进制数据，
+//            //name 服务器定义的字段名字 - 后台接口文档会显示；
+//            //fileName是保存在服务器的文件名，但是：通常可以乱写，后台会做后续的处理，根据上传的文件，生成缩略图，中等图，高清图，是http协议定义的属性
+//            //mimeType/contentType 客户端告诉服务器，二进制数据的准确类型 - 大类型/小类型 image/ipg,image/git,image/png; text/plain,text/html, application/json 如果不想告诉服务器准确类型 application/octet-stream
+//            formData.appendPart(withFileData: data, name: name, fileName: "xxx", mimeType: "application/octet-stream")
+//        } progress: { (_) in
+//
+//        } success: { (_, result) in
+//            finished(result, nil)
+//        } failure: { (_, error) in
+//            finished(nil, error)
+//        }
+//
+//
     }
 }

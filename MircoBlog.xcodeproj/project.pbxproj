@@ -262,6 +262,14 @@
 			path = RefreshView;
 			sourceTree = "<group>";
 		};
+		1822DD9626467F2A000980B1 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				18B17466263BE7E900AF4459 /* fmdb */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
 		185F659F2631652400EC2B44 /* Compose */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,6 +392,7 @@
 		18D970402615C48C005F0A5A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1822DD9626467F2A000980B1 /* Libs */,
 				18D970442615C48C005F0A5A /* View(视图和控制器) */,
 				18D970412615C48C005F0A5A /* ViewModel */,
 				18D970432615C48C005F0A5A /* Model */,
@@ -405,7 +414,6 @@
 		18D970422615C48C005F0A5A /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				18B17466263BE7E900AF4459 /* fmdb */,
 				180B55D626354F9A004B8AB7 /* PhotoBrowser */,
 				180B55D026353ED3004B8AB7 /* PicturePicker */,
 				180B549C26325BE7004B8AB7 /* Emoticon */,
