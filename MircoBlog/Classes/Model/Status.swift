@@ -17,7 +17,13 @@ class Status: NSObject {
     ///    微博创建时间
     @objc var created_at: String?
     ///    微博来源
-    @objc var source: String?
+    @objc var source: String? {
+        didSet {
+            //在didSet内部重新赋值后，不会再调用didSet
+            //过滤出文本，重新设置soucre
+            source = source?.href()?.source
+        }
+    }
     ///用户模型
     @objc var user: User?
     ///缩略图配图数组 key thumbnail_pic

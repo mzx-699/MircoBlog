@@ -22,12 +22,10 @@ class StatusTableViewCellTopView: UIView {
             memberIconView.image = viewModel?.userMemeberImage
             //认证图标
             vipIconView.image = viewModel?.userVipImage
-            
-            // TODO: - 后续修改
             //时间标签
-            timeLabel.text = "刚刚" //viewModel?.status.created_at
+            timeLabel.text = viewModel?.createAt
             //来源
-            sourceLabel.text = "来源" //viewModel?.status.source
+            sourceLabel.text = viewModel?.status.source
         }
     }
     

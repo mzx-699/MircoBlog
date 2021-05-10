@@ -26,6 +26,9 @@
 		182114F7262D728700FE98FB /* StatusNormalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182114F6262D728700FE98FB /* StatusNormalTableViewCell.swift */; };
 		18211508262E882800FE98FB /* WBrefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18211507262E882800FE98FB /* WBrefreshControl.swift */; };
 		1821150D262E88CB00FE98FB /* WBRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1821150C262E88CB00FE98FB /* WBRefreshView.xib */; };
+		1822DD9B26467FD3000980B1 /* QorumLogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822DD9A26467FD3000980B1 /* QorumLogs.swift */; };
+		1822DDE62648DC86000980B1 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822DDE52648DC85000980B1 /* Date+Extension.swift */; };
+		1822DE732649470D000980B1 /* String+Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822DE722649470D000980B1 /* String+Regex.swift */; };
 		185F65A2263165F300EC2B44 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185F65A1263165F300EC2B44 /* ComposeViewController.swift */; };
 		18711FDE26293827008C5A49 /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18711FDD26293826008C5A49 /* StatusPictureView.swift */; };
 		18736ECB262D638A0069433E /* StatusRetweetedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18736ECA262D638A0069433E /* StatusRetweetedTableViewCell.swift */; };
@@ -109,6 +112,9 @@
 		182114F6262D728700FE98FB /* StatusNormalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusNormalTableViewCell.swift; sourceTree = "<group>"; };
 		18211507262E882800FE98FB /* WBrefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBrefreshControl.swift; sourceTree = "<group>"; };
 		1821150C262E88CB00FE98FB /* WBRefreshView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBRefreshView.xib; sourceTree = "<group>"; };
+		1822DD9A26467FD3000980B1 /* QorumLogs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QorumLogs.swift; sourceTree = "<group>"; };
+		1822DDE52648DC85000980B1 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		1822DE722649470D000980B1 /* String+Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Regex.swift"; sourceTree = "<group>"; };
 		185F65A1263165F300EC2B44 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		18711FDD26293826008C5A49 /* StatusPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
 		18736ECA262D638A0069433E /* StatusRetweetedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusRetweetedTableViewCell.swift; sourceTree = "<group>"; };
@@ -265,6 +271,7 @@
 		1822DD9626467F2A000980B1 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				1822DD9A26467FD3000980B1 /* QorumLogs.swift */,
 				18B17466263BE7E900AF4459 /* fmdb */,
 			);
 			path = Libs;
@@ -498,6 +505,8 @@
 			children = (
 				18D9708B2615E80E005F0A5A /* UIButton+Extension.swift */,
 				1879BA51261D46AC0066DA14 /* UILabel+Extension.swift */,
+				1822DE722649470D000980B1 /* String+Regex.swift */,
+				1822DDE52648DC85000980B1 /* Date+Extension.swift */,
 				1879BA56261D48850066DA14 /* UIImageView+Extension.swift */,
 				1877402D263193CE0080E72D /* UIBarButtonItem+Extension.swift */,
 				180B55CB26353EB1004B8AB7 /* UIImage+Extension.swift */,
@@ -781,6 +790,7 @@
 			files = (
 				180B55CC26353EB1004B8AB7 /* UIImage+Extension.swift in Sources */,
 				18736ECB262D638A0069433E /* StatusRetweetedTableViewCell.swift in Sources */,
+				1822DD9B26467FD3000980B1 /* QorumLogs.swift in Sources */,
 				18B17473263BE7EA00AF4459 /* FMDatabaseAdditions.m in Sources */,
 				180B54AF26325BFE004B8AB7 /* String+Emoji.swift in Sources */,
 				18211508262E882800FE98FB /* WBrefreshControl.swift in Sources */,
@@ -813,6 +823,7 @@
 				1879BA57261D48850066DA14 /* UIImageView+Extension.swift in Sources */,
 				1877402E263193CE0080E72D /* UIBarButtonItem+Extension.swift in Sources */,
 				18D9709A2615F909005F0A5A /* VisitorView.swift in Sources */,
+				1822DDE62648DC86000980B1 /* Date+Extension.swift in Sources */,
 				18D96FFE2615B4D9005F0A5A /* AppDelegate.swift in Sources */,
 				1879BBC0261DB2EB0066DA14 /* NetworkTools.swift in Sources */,
 				1879BCA62621904A0066DA14 /* StatusTableViewCellTopView.swift in Sources */,
@@ -823,6 +834,7 @@
 				1879BC14261EE9CC0066DA14 /* UserAccount.swift in Sources */,
 				18711FDE26293827008C5A49 /* StatusPictureView.swift in Sources */,
 				180B54A626325BE7004B8AB7 /* EmoticonView.swift in Sources */,
+				1822DE732649470D000980B1 /* String+Regex.swift in Sources */,
 				1879BC9826218DBC0066DA14 /* StatusViewModel.swift in Sources */,
 				1879BC89262159FF0066DA14 /* Status.swift in Sources */,
 				18B17476263BE7EA00AF4459 /* FMResultSet.m in Sources */,

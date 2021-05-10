@@ -57,6 +57,11 @@ class HomeTableViewController: VisitorTableViewController {
 //            vc.modalPresentationStyle = .fullScreen
             self?.present(vc, animated: true, completion: nil)
         }
+        //定时器
+        dispatchTimer(timeInterval: 60, handler: { (_) in
+            self.tableView.reloadData()
+//            print("刷新数据")
+        }, needRepeat: true)
         
     }
     deinit {
@@ -99,12 +104,49 @@ class HomeTableViewController: VisitorTableViewController {
                 return
             }
 //            print(self.listViewModel.statusList)
+            //显示下拉刷新提示
+            self.showPulldownTip()
             //刷新数据
             self.tableView.reloadData()
             
         }
     }
+    ///显示下拉刷新提示
+    private func showPulldownTip() {
+        guard let count = listViewModel.pulldownCount else {
+            return
+        }
+        QL1("下拉刷新 \(count)")
+        //添加提示 就近原则
+        pulldownTipLabel.text = (count == 0) ? "没有新微博" : "刷新到 \(count) 条微博"
+        let height: CGFloat = 30
+        let rect = CGRect(x: 0, y: 0, width: view.bounds.width, height: height)
+        pulldownTipLabel.frame = rect.offsetBy(dx: 0, dy: -3 * height)
+        
+        //动画
+        UIView.animate(withDuration: 1) {
+            self.pulldownTipLabel.alpha = 0.7
+            self.pulldownTipLabel.frame = rect.offsetBy(dx: 0, dy: 0)
+        } completion: { (_) in
+            UIView.animate(withDuration: 1) {
+                self.pulldownTipLabel.frame = rect.offsetBy(dx: 0, dy: -3 * height)
+                self.pulldownTipLabel.alpha = 0
+            } completion: { (_) in
+//                self.pulldownTipLabel.removeFromSuperview()
+            }
+
+        }
+
+    }
     //MARK: - 懒加载控件
+    ///下拉刷新提示标签
+    private lazy var pulldownTipLabel: UILabel = {
+        let label = UILabel(title: "", fontSize: 18, color: UIColor.white)
+        label.backgroundColor = UIColor.orange
+        label.alpha = 0
+        tableView.addSubview(label)
+        return label
+    }()
     //上拉刷新
     private lazy var pullupView: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
@@ -166,5 +208,32 @@ extension HomeTableViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        print("\(indexPath.row) : \(listViewModel.statusList[indexPath.row].rowHeight)")
+    }
+}
+
+//MARK: - 定时器
+extension HomeTableViewController {
+    /// GCD实现定时器
+    ///
+    /// - Parameters:
+    ///   - timeInterval: 间隔时间
+    ///   - handler: 事件
+    ///   - needRepeat: 是否重复
+    func dispatchTimer(timeInterval: Double, handler: @escaping (DispatchSourceTimer?) -> Void, needRepeat: Bool) {
+        
+        let timer = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.main)
+        timer.schedule(deadline: .now(), repeating: timeInterval)
+        timer.setEventHandler {
+            DispatchQueue.main.async {
+                if needRepeat {
+                    handler(timer)
+                } else {
+                    timer.cancel()
+                    handler(nil)
+                }
+            }
+        }
+        timer.resume()
+        
     }
 }

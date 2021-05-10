@@ -11,7 +11,8 @@ import SDWebImage
 class StatusListViewModel {
     ///微博数据数组
     lazy var statusList = [StatusViewModel]()
-
+    ///下拉刷新计数
+    var pulldownCount: Int?
     /// 加载网络数据
     /// - Parameters:
     ///   - isPullup: 是否上拉刷新
@@ -44,7 +45,9 @@ class StatusListViewModel {
             else {
                 self.statusList = dataList + self.statusList
             }
-//            print("刷新出\(dataList.count)")
+            QL2("刷新出\(dataList.count)")
+            //记录下拉刷新的数据
+            self.pulldownCount = (since_id > 0) ? dataList.count : nil
 //            print(self.statusList)
 //            //完成回调
 //            finished(true)

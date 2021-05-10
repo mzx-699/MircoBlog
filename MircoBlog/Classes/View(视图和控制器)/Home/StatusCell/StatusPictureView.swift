@@ -196,6 +196,8 @@ private class StatusPicutreCell: UICollectionViewCell {
                                  options: [SDWebImageOptions.retryFailed, //超时不计入黑名单
                                                                                   SDWebImageOptions.refreshCached], //url不变，图像变，更新图像
                                  context:nil)
+            let pathExtension = (imageUrl!.absoluteString as NSString).pathExtension.lowercased()
+            gifIconView.isHidden = (pathExtension != "gif") //不等于隐藏
         }
     }
     //MARK: - 构造函数
@@ -218,13 +220,20 @@ private class StatusPicutreCell: UICollectionViewCell {
         iv.clipsToBounds = true
         return iv
     }()
+    private lazy var gifIconView: UIImageView = UIImageView(imageName: "timeline_image_gif")
     
     private func setupUI() {
         contentView.addSubview(iconView)
+        iconView.addSubview(gifIconView)
         //因为cell会变化，另外不同的cell大小不一样
         iconView.snp.makeConstraints { (make) in
             //上左下右
             make.edges.equalTo(contentView.snp.edges)
+        }
+        gifIconView.snp.makeConstraints { (make) in
+            //右下角
+            make.right.equalTo(iconView.snp.right)
+            make.bottom.equalTo(iconView.snp.bottom)
         }
     }
 }

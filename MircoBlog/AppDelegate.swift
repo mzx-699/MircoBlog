@@ -14,11 +14,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        //设置输出
+        QorumLogs.enabled = true
+//        QorumLogs.test()
+        //info以上的级别，添加问及说明，方便查找
+        //最小日志界别
+//        QorumLogs.minimumLogLevelShown = 4
+        //测试的时候 限定输出的文件
+//        QorumLogs.onlyShowThisFile(HomeTableViewController.self)
+        
         //设置afn 通过afn发起网络请求时，在状态栏显示菊花加载
         // TODO: - 没反应
-        AFNetworkActivityIndicatorManager.shared().isEnabled = true
+//        AFNetworkActivityIndicatorManager.shared().isEnabled = true
         setupAppearance()
         //测试归档
+//        QLShortLine()
+//        QL2(UserAccountViewModel.sharedUserAccount.account!)
 //        print(UserAccountViewModel.sharedUserAccount.account)
         
         window = UIWindow(frame: UIScreen.main.bounds)
