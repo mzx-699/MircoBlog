@@ -21,4 +21,5 @@ target 'MircoBlog' do
   pod 'SnapKit'
   pod 'UICollectionViewLeftAlignedLayout'
   pod 'Alamofire'
+  pod 'FFLabel'
 end
