@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0E409EC2EF1DDCCA96159EBC /* Pods_MircoBlog_MircoBlogUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF34E8C8B4E645D00C559CF /* Pods_MircoBlog_MircoBlogUITests.framework */; };
-		180B54A526325BE7004B8AB7 /* EmoticonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180B549E26325BE7004B8AB7 /* EmoticonManager.swift */; };
 		180B54A626325BE7004B8AB7 /* EmoticonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180B549F26325BE7004B8AB7 /* EmoticonView.swift */; };
 		180B54A726325BE7004B8AB7 /* EmoticonAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180B54A026325BE7004B8AB7 /* EmoticonAttachment.swift */; };
 		180B54A826325BE7004B8AB7 /* Emoticon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180B54A226325BE7004B8AB7 /* Emoticon.swift */; };
@@ -29,6 +28,7 @@
 		1822DD9B26467FD3000980B1 /* QorumLogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822DD9A26467FD3000980B1 /* QorumLogs.swift */; };
 		1822DDE62648DC86000980B1 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822DDE52648DC85000980B1 /* Date+Extension.swift */; };
 		1822DE732649470D000980B1 /* String+Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822DE722649470D000980B1 /* String+Regex.swift */; };
+		1822DF67264A31A5000980B1 /* EmoticonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822DF66264A31A5000980B1 /* EmoticonManager.swift */; };
 		185F65A2263165F300EC2B44 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185F65A1263165F300EC2B44 /* ComposeViewController.swift */; };
 		18711FDE26293827008C5A49 /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18711FDD26293826008C5A49 /* StatusPictureView.swift */; };
 		18736ECB262D638A0069433E /* StatusRetweetedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18736ECA262D638A0069433E /* StatusRetweetedTableViewCell.swift */; };
@@ -94,7 +94,6 @@
 
 /* Begin PBXFileReference section */
 		0A5CD6770D57970085F44E43 /* Pods-MircoBlog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MircoBlog.debug.xcconfig"; path = "Target Support Files/Pods-MircoBlog/Pods-MircoBlog.debug.xcconfig"; sourceTree = "<group>"; };
-		180B549E26325BE7004B8AB7 /* EmoticonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonManager.swift; sourceTree = "<group>"; };
 		180B549F26325BE7004B8AB7 /* EmoticonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonView.swift; sourceTree = "<group>"; };
 		180B54A026325BE7004B8AB7 /* EmoticonAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonAttachment.swift; sourceTree = "<group>"; };
 		180B54A226325BE7004B8AB7 /* Emoticon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoticon.swift; sourceTree = "<group>"; };
@@ -115,6 +114,7 @@
 		1822DD9A26467FD3000980B1 /* QorumLogs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QorumLogs.swift; sourceTree = "<group>"; };
 		1822DDE52648DC85000980B1 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		1822DE722649470D000980B1 /* String+Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Regex.swift"; sourceTree = "<group>"; };
+		1822DF66264A31A5000980B1 /* EmoticonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonManager.swift; sourceTree = "<group>"; };
 		185F65A1263165F300EC2B44 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		18711FDD26293826008C5A49 /* StatusPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
 		18736ECA262D638A0069433E /* StatusRetweetedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusRetweetedTableViewCell.swift; sourceTree = "<group>"; };
@@ -226,7 +226,7 @@
 		180B549D26325BE7004B8AB7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				180B549E26325BE7004B8AB7 /* EmoticonManager.swift */,
+				1822DF66264A31A5000980B1 /* EmoticonManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -800,6 +800,7 @@
 				1879BCAB262190760066DA14 /* StatusTableViewCellBottomView.swift in Sources */,
 				18D9706A2615C5E7005F0A5A /* HomeTableViewController.swift in Sources */,
 				1879BBCA261DB4250066DA14 /* OAtuhViewController.swift in Sources */,
+				1822DF67264A31A5000980B1 /* EmoticonManager.swift in Sources */,
 				18B17492263BF09100AF4459 /* StatusDAL.swift in Sources */,
 				180B54A826325BE7004B8AB7 /* Emoticon.swift in Sources */,
 				18B17475263BE7EA00AF4459 /* FMDatabasePool.m in Sources */,
@@ -809,7 +810,6 @@
 				182114F7262D728700FE98FB /* StatusNormalTableViewCell.swift in Sources */,
 				18B17474263BE7EA00AF4459 /* FMDatabase.m in Sources */,
 				18D970792615C609005F0A5A /* MessageTableViewController.swift in Sources */,
-				180B54A526325BE7004B8AB7 /* EmoticonManager.swift in Sources */,
 				1879BA5C261D537E0066DA14 /* Common.swift in Sources */,
 				18D970862615C63E005F0A5A /* MainViewController.swift in Sources */,
 				18D970952615F6F6005F0A5A /* VisitorTableViewController.swift in Sources */,

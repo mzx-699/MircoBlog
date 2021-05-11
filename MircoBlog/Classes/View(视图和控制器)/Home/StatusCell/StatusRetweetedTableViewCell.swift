@@ -12,7 +12,8 @@ class StatusRetweetedTableViewCell: StatusTableViewCell {
     ///微博视图模型
     override var viewModel: StatusViewModel? {
         didSet {
-            retweetedLabel.text = viewModel?.retweetedText
+            let text = viewModel?.retweetedText ?? ""
+            retweetedLabel.attributedText = EmoticonManager.sharedManager.emoticonText(string: text, font: retweetedLabel.font)
             pictureView.snp.updateConstraints { (make) in
                 let offset = viewModel?.thumbnailUrls?.count ?? 0 > 0 ? StatusCellMargin : 0
                 make.top.equalTo(retweetedLabel.snp.bottom).offset(offset)

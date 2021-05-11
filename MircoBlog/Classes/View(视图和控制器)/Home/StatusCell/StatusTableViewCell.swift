@@ -19,7 +19,9 @@ class StatusTableViewCell: UITableViewCell {
     var viewModel: StatusViewModel? {
         didSet {
             topView.viewModel = viewModel
-            contentLabel.text = viewModel?.status.text
+            
+            let text = viewModel?.status.text ?? ""
+            contentLabel.attributedText = EmoticonManager.sharedManager.emoticonText(string: text, font: contentLabel.font)
             //设置配图视图后，配图视图有能力计算大小
             pictureView.viewModel = viewModel
             //修改配图视图的高度 实际开发中，如果动态修改约束的高度，可能会导致行高计算有误
