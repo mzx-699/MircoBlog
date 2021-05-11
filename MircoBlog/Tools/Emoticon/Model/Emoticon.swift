@@ -20,6 +20,8 @@ class Emoticon: NSObject {
     }
     ///emoji字符串
     var emoji: String?
+    ///表情使用次数
+    @objc var times = 0
     ///完整路径
     var imagePath: String {
         //判断是否有图片
@@ -50,7 +52,7 @@ class Emoticon: NSObject {
         
     }
     override var description: String {
-        let keys = ["chs", "png", "code", "isRemoved"]
+        let keys = ["chs", "png", "code", "isRemoved", "times"]
         
         return dictionaryWithValues(forKeys: keys).description
     }

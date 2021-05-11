@@ -14,6 +14,22 @@ class EmoticonManager {
     static let sharedManager = EmoticonManager()
     ///表情包模型
     lazy var packages = [EmoticonPackage]()
+    
+    //MARK: - 最近表情
+    ///添加最近表情 表情模型添加到packages[0]
+    func addFavorite(em: Emoticon) {
+        //表情次数+1
+        em.times += 1
+        //1.判断表情是否被添加
+        if !packages[0].emoticons.contains(em) && !em.isRemoved {
+            packages[0].emoticons.insert(em, at: 0)
+            //删除倒数第二个按钮
+            packages[0].emoticons.remove(at: packages[0].emoticons.count - 2)
+        }
+        //2.排序当前数组 内存排序处理方法
+        packages[0].emoticons.sort { $0.times > $1.times }
+        
+    }
     //MARK: - 生成属性字符串
     ///将字符串转换成属性字符串
     func emoticonText(string: String, font: UIFont) -> NSAttributedString {

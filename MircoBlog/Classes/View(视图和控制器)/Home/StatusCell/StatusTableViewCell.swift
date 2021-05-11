@@ -6,14 +6,22 @@
 //
 
 import UIKit
-
+import FFLabel
 ///微博cell中控件的间距数值
 let StatusCellMargin: CGFloat = 12
 ///微博头像宽度
 let StatusCellIconWidth: CGFloat = 35
-
+//MARK: - cell代理
+protocol StatusCellDelegate: NSObjectProtocol {
+    
+    ///微博cell点击url
+    func statusCellDidclickUrl(url: URL)
+}
 ///微博cell
 class StatusTableViewCell: UITableViewCell {
+    
+    ///代理
+    weak var cellDelegate: StatusCellDelegate?
     
     ///微博视图模型
     var viewModel: StatusViewModel? {
@@ -68,7 +76,7 @@ class StatusTableViewCell: UITableViewCell {
     ///顶部视图
     private lazy var topView: StatusTableViewCellTopView = StatusTableViewCellTopView()
     ///微博正文标签
-    lazy var contentLabel: UILabel = UILabel(title: "微博正文", fontSize: 15, screenInset: StatusCellMargin)
+    lazy var contentLabel: FFLabel = FFLabel(title: "微博正文", fontSize: 15, color: UIColor.darkGray, screenInset: StatusCellMargin)
     ///配图
     lazy var pictureView: StatusPictureView = StatusPictureView()
     ///底部视图
@@ -108,6 +116,21 @@ extension StatusTableViewCell {
             make.right.equalTo(contentView.snp.right)
             make.height.equalTo(44)
 
+        }
+        //设置代理
+        contentLabel.labelDelegate = self
+    }
+}
+
+//MARK: - FFLabelDelegate
+extension StatusTableViewCell: FFLabelDelegate {
+    func labelDidSelectedLinkText(label: FFLabel, text: String) {
+        //判断text是否是url
+        if text.hasPrefix("http://") {
+            guard let url = URL(string: text) else {
+                return
+            }
+            cellDelegate?.statusCellDidclickUrl(url: url)
         }
     }
 }

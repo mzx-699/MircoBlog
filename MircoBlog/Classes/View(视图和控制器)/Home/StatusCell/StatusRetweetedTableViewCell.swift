@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FFLabel
 ///转发微博的cell
 class StatusRetweetedTableViewCell: StatusTableViewCell {
     //重写属性 需要override，不需要super，先执行父类的didset，再执行子类的didset，只关心子类的didset
@@ -28,7 +29,7 @@ class StatusRetweetedTableViewCell: StatusTableViewCell {
         return button
     }()
     //转发标签
-    private lazy var retweetedLabel: UILabel = UILabel(title: "转发微博转发微博转发微博转发微博转发微博转发微博转发微博转发微博转发微博转发微博转发微博",
+    private lazy var retweetedLabel: FFLabel = FFLabel(title: "转发微博",
                                                        fontSize: 14,
                                                        color: UIColor.darkGray,
                                                        screenInset: StatusCellMargin)
@@ -60,5 +61,8 @@ extension StatusRetweetedTableViewCell {
             make.height.equalTo(90)
         }
         pictureView.backgroundColor = UIColor.clear
+        
+        //设置代理
+        retweetedLabel.labelDelegate = self
     }
 }

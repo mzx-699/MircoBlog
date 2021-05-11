@@ -175,6 +175,8 @@ extension HomeTableViewController {
             //上拉刷新数据
             loadData()
         }
+        //设置cell的代理
+        cell.cellDelegate = self
         cell.contentView.layoutIfNeeded()
         return cell
     }
@@ -235,5 +237,16 @@ extension HomeTableViewController {
         }
         timer.resume()
         
+    }
+}
+
+//MARK: - cellDelegate
+extension HomeTableViewController: StatusCellDelegate {
+    func statusCellDidclickUrl(url: URL) {
+        //建立webview控制器
+        let vc = HomeWebViewController(url: url)
+        //隐藏下面的bar
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

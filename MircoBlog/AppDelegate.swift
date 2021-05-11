@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        QLShortLine()
 //        QL2(UserAccountViewModel.sharedUserAccount.account!)
 //        print(UserAccountViewModel.sharedUserAccount.account)
+        //显示菊花
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white

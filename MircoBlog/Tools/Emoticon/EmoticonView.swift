@@ -30,7 +30,7 @@ class EmoticonView: UIView {
         super.init(frame: rect)
         backgroundColor = UIColor.red
         setupUI()
-        //滚动到第一页
+        //滚动到第一页 item是第几个
         let indenPath = IndexPath(item: 0, section: 1)
         DispatchQueue.main.async {
             self.collectionView.scrollToItem(at: indenPath, at: .left, animated: false)
@@ -116,7 +116,7 @@ private extension EmoticonView {
         toolbar.items = items
     }
     func prepareCollectionView() {
-        collectionView.backgroundColor = UIColor.lightGray
+        collectionView.backgroundColor = UIColor.white
         //注册cell
         collectionView.register(EmoticonViewCell.self, forCellWithReuseIdentifier: EmoticonViewCellId)
         
@@ -134,6 +134,12 @@ extension EmoticonView: UICollectionViewDataSource, UICollectionViewDelegate {
         //传递表情
         //执行回调
         selectedEmoticonCallBack(em)
+        //添加最近表情
+        //第0个分组不参加排序
+        if indexPath.section > 0 {
+            EmoticonManager.sharedManager.addFavorite(em: em)
+        }
+        
     }
     //返回分组数量 表情包的数量
     func numberOfSections(in collectionView: UICollectionView) -> Int {

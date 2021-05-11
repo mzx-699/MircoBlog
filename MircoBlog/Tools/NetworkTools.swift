@@ -202,8 +202,9 @@ extension NetworkTools {
         request(method: method, URLString: URLString, parameters: parameters, finished: finished)
     }
     func request(method: HTTPMethod, URLString: String, parameters: [String: Any]?, finished: @escaping SSRequestCallBack) {
-        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         AF.request(URLString, method: method, parameters: parameters).responseJSON { (response) in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             switch response.result {
             case .failure(let error):
                 print("网络请求失败 --- \(error)")
@@ -246,7 +247,9 @@ extension NetworkTools {
         let para = parameters
 //        print(para)
         //appendBody 方法中，如果带 mimeType 是上传文件；不带 拼接普通二进制参数方法
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         AF.upload(multipartFormData: { (formData) in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             formData.append(data, withName: name, fileName: "xxx", mimeType: "application/octet-stream")
             //遍历参数字典，生成参数数据
             if para != nil {

@@ -29,6 +29,7 @@
 		1822DDE62648DC86000980B1 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822DDE52648DC85000980B1 /* Date+Extension.swift */; };
 		1822DE732649470D000980B1 /* String+Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822DE722649470D000980B1 /* String+Regex.swift */; };
 		1822DF67264A31A5000980B1 /* EmoticonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822DF66264A31A5000980B1 /* EmoticonManager.swift */; };
+		1822DF86264A5E81000980B1 /* HomeWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1822DF85264A5E81000980B1 /* HomeWebViewController.swift */; };
 		185F65A2263165F300EC2B44 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185F65A1263165F300EC2B44 /* ComposeViewController.swift */; };
 		18711FDE26293827008C5A49 /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18711FDD26293826008C5A49 /* StatusPictureView.swift */; };
 		18736ECB262D638A0069433E /* StatusRetweetedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18736ECA262D638A0069433E /* StatusRetweetedTableViewCell.swift */; };
@@ -115,6 +116,7 @@
 		1822DDE52648DC85000980B1 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		1822DE722649470D000980B1 /* String+Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Regex.swift"; sourceTree = "<group>"; };
 		1822DF66264A31A5000980B1 /* EmoticonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonManager.swift; sourceTree = "<group>"; };
+		1822DF85264A5E81000980B1 /* HomeWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWebViewController.swift; sourceTree = "<group>"; };
 		185F65A1263165F300EC2B44 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		18711FDD26293826008C5A49 /* StatusPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
 		18736ECA262D638A0069433E /* StatusRetweetedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusRetweetedTableViewCell.swift; sourceTree = "<group>"; };
@@ -461,6 +463,7 @@
 				18211506262E87B500FE98FB /* RefreshView */,
 				1879BC9C26218FF80066DA14 /* StatusCell */,
 				18D970692615C5E7005F0A5A /* HomeTableViewController.swift */,
+				1822DF85264A5E81000980B1 /* HomeWebViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -808,6 +811,7 @@
 				180B55D226353ED3004B8AB7 /* PicturePickerCollectionViewController.swift in Sources */,
 				180B55FF2636BA0E004B8AB7 /* PhotoBrowserAnimator.swift in Sources */,
 				182114F7262D728700FE98FB /* StatusNormalTableViewCell.swift in Sources */,
+				1822DF86264A5E81000980B1 /* HomeWebViewController.swift in Sources */,
 				18B17474263BE7EA00AF4459 /* FMDatabase.m in Sources */,
 				18D970792615C609005F0A5A /* MessageTableViewController.swift in Sources */,
 				1879BA5C261D537E0066DA14 /* Common.swift in Sources */,
