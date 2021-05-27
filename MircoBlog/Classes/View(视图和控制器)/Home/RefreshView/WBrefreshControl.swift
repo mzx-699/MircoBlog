@@ -9,42 +9,46 @@ import UIKit
 ///下拉刷新控件的偏移量
 private let WBRefreshControlOffset:CGFloat = -50
 ///自定义刷新控件-负责处理刷新逻辑
-class WBrefreshControl: UIRefreshControl {
+class WBrefreshControl: UIView {
+    private var isRefreshing: Bool = false
     //MARK: - 重新系统方法
-    override func endRefreshing() {
-        super.endRefreshing()
+    func endRefreshing() {
+//        super.endRefreshing()
         //停止动画
         refreshView.stopAnimation()
     }
     ///主动触发开始刷新动画 -- 不不会触发监听方法
-    override func beginRefreshing() {
-        super.beginRefreshing()
+    func beginRefreshing() {
+//        super.beginRefreshing()
         refreshView.startAnimation()
     }
     //MARK: - kvo监听方法
     //始终呆在屏幕上；下拉的时候，frame的y一直变小，相反（向上推）一直变大；默认y值是0
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if frame.origin.y > 0 {
-            return
-        }
-        //判断是否正在刷新
-        if isRefreshing {
-            refreshView.startAnimation()
-            return
-        }
-        if frame.origin.y < WBRefreshControlOffset && !refreshView.rotateFlag {
-            refreshView.rotateFlag = true
-        }
-        else if frame.origin.y >= WBRefreshControlOffset && refreshView.rotateFlag {
-            refreshView.rotateFlag = false
-        }
-    }
-
-    override init() {
-        super.init()
+//    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+//        if frame.origin.y > 0 {
+//            return
+//        }
+//        //判断是否正在刷新
+//        if isRefreshing {
+//            refreshView.startAnimation()
+//            return
+//        }
+//        if frame.origin.y < WBRefreshControlOffset && !refreshView.rotateFlag {
+//            refreshView.rotateFlag = true
+//        }
+//        else if frame.origin.y >= WBRefreshControlOffset && refreshView.rotateFlag {
+//            refreshView.rotateFlag = false
+//        }
+//    }
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupUI()
     }
+//    override init() {
+//        super.init()
+//        setupUI()
+//    }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -62,9 +66,9 @@ class WBrefreshControl: UIRefreshControl {
         //使用kvo监听位置变化 --主队列，当主线程有任务，就不调度队伍中的任务执行
         //当前运行循环中所有代码执行完毕后，运行循坏结束前，开始监听
         //方法触发会在下一次运行循环开始，每一次有交互的动作后，才会有运行循环开始
-        DispatchQueue.main.async {
-            self.addObserver(self, forKeyPath: "frame", options: [], context: nil)
-        }
+//        DispatchQueue.main.async {
+//            self.addObserver(self, forKeyPath: "frame", options: [], context: nil)
+//        }
         
     }
     deinit {

@@ -162,7 +162,8 @@ extension StatusPictureView {
                 
             }
             //过窄处理 针对长图 --- 改变条件进行测试
-            if size.width < 100 {
+//            size.width = size.width < 40 ? 40 : size.width
+            if size.width < 100 || size.width < size.height {
                 let w: CGFloat = 100
                 let h = size.height / size.width * w
                 size = CGSize(width: w, height: h)

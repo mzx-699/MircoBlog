@@ -91,22 +91,23 @@ class HomeTableViewController: VisitorTableViewController {
 //        refreshControl = WBrefreshControl()
         
         tableView.tableHeaderView = headerView
-        tableView.contentInset = UIEdgeInsets(top: -tableView.tableHeaderView!.bounds.height, left: 0, bottom: 0, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: tableView.tableHeaderView!.bounds.height, left: 0, bottom: 0, right: 0)
         //上来刷新视图
         tableView.tableFooterView = pullupView
     }
     ///加载属性
     private func loadData(offsetY: CGFloat) {
 //        refreshControl?.beginRefreshing()
-        headerView.beginRefreshing()
         UIView.animate(withDuration: 0.5) {
             self.tableView.contentInset = UIEdgeInsets(top:0, left: 0, bottom: 0, right: 0)
         }
+        headerView.beginRefreshing()
+        
         listViewModel.loadStatus(isPullup: pullupView.isAnimating) { (isSuccessed) in
             //关闭下拉刷新控件
 //            self.refreshControl?.endRefreshing()
             self.headerView.endRefreshing()
-            UIView.animate(withDuration: 1) {
+            UIView.animate(withDuration: 0.5) {
                 self.tableView.contentInset = UIEdgeInsets(top:-self.tableView.tableHeaderView!.bounds.height, left: 0, bottom: 0, right: 0)
             }
             //关闭上拉刷新
@@ -166,7 +167,7 @@ class HomeTableViewController: VisitorTableViewController {
     }()
     ///照片查看专场动画代理
     private lazy var photoBrowsweAnimator: PhotoBrowserAnimator = PhotoBrowserAnimator()
-    private lazy var headerView = WBrefreshControl()
+    private lazy var headerView = WBrefreshControl(frame: CGRect(x: 0, y: 0, width: 160, height: 60))
 }
 
 //MARK: - 数据源方法

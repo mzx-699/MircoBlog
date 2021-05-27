@@ -56,6 +56,7 @@ class StatusTableViewCell: UITableViewCell {
         viewModel = vm
         //强制更新所有约束，所有控件的frame都会被计算正确
         contentView.layoutIfNeeded()
+        
 //        QL2("contentView.layoutIfNeeded() + \(String(describing: vm.status.user?.screen_name))")
         //返回底部视图最大高度
         return bottomView.frame.maxY
