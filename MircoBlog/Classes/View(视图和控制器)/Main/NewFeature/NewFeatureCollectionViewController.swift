@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 ///可重用cellID
 private let WBNewFeatureCollectionViewCellId = "WBNewFeatureCollectionViewCellId"
-///新特性图像书香
+///新特性图像数量
 private let WBNewFeatureImageCount = 4
 
 class NewFeatureCollectionViewController: UICollectionViewController {

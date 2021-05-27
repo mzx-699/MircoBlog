@@ -11,6 +11,7 @@ import SVProgressHUD
 let StatusCellNormalId = "StatusCellNormalId"
 ///转发微博的可重用id
 let StatusCellRetweetedId = "StatusCellRetweetedId"
+
 class HomeTableViewController: VisitorTableViewController {
     
     ///微博数据列表模型
@@ -21,13 +22,14 @@ class HomeTableViewController: VisitorTableViewController {
     //调用访客视图didload
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if !UserAccountViewModel.sharedUserAccount.userLogon {
             visitorView?.setupInfo(imageName: nil, title: "关注一些人，回这里看看有什么惊喜")
             return
         }
         prepareTableView()
-        loadData()
+        
+        
+        loadData(offsetY: tableView.tableHeaderView!.bounds.height)
         //注册通知 通知中心始终存在对self有引用，只要监听到通知就会调用block，导致self无法被释放，一定要弱引用
         NotificationCenter.default.addObserver(forName: NSNotification.Name(WBStatusSelectedPhotoNotification), object: nil, //发送通知的对象
                                                queue: nil) { [weak self] (n) in
@@ -86,17 +88,27 @@ class HomeTableViewController: VisitorTableViewController {
         
         //navbar 44 tabbar 49
         //下来刷新 下来刷新控件默认没有 高度60
-        refreshControl = WBrefreshControl()
-
+//        refreshControl = WBrefreshControl()
+        
+        tableView.tableHeaderView = headerView
+        tableView.contentInset = UIEdgeInsets(top: -tableView.tableHeaderView!.bounds.height, left: 0, bottom: 0, right: 0)
         //上来刷新视图
         tableView.tableFooterView = pullupView
     }
     ///加载属性
-    @objc private func loadData() {
-        refreshControl?.beginRefreshing()
+    private func loadData(offsetY: CGFloat) {
+//        refreshControl?.beginRefreshing()
+        headerView.beginRefreshing()
+        UIView.animate(withDuration: 0.5) {
+            self.tableView.contentInset = UIEdgeInsets(top:0, left: 0, bottom: 0, right: 0)
+        }
         listViewModel.loadStatus(isPullup: pullupView.isAnimating) { (isSuccessed) in
             //关闭下拉刷新控件
-            self.refreshControl?.endRefreshing()
+//            self.refreshControl?.endRefreshing()
+            self.headerView.endRefreshing()
+            UIView.animate(withDuration: 1) {
+                self.tableView.contentInset = UIEdgeInsets(top:-self.tableView.tableHeaderView!.bounds.height, left: 0, bottom: 0, right: 0)
+            }
             //关闭上拉刷新
             self.pullupView.stopAnimating()
             if !isSuccessed {
@@ -121,12 +133,12 @@ class HomeTableViewController: VisitorTableViewController {
         pulldownTipLabel.text = (count == 0) ? "没有新微博" : "刷新到 \(count) 条微博"
         let height: CGFloat = 30
         let rect = CGRect(x: 0, y: 0, width: view.bounds.width, height: height)
-        pulldownTipLabel.frame = rect.offsetBy(dx: 0, dy: -3 * height)
+        pulldownTipLabel.frame = rect.offsetBy(dx: 0, dy: -3 * height + tableView.tableHeaderView!.bounds.height)
         
         //动画
         UIView.animate(withDuration: 1) {
             self.pulldownTipLabel.alpha = 0.7
-            self.pulldownTipLabel.frame = rect.offsetBy(dx: 0, dy: 0)
+            self.pulldownTipLabel.frame = rect.offsetBy(dx: 0, dy: self.tableView.tableHeaderView!.bounds.height)
         } completion: { (_) in
             UIView.animate(withDuration: 1) {
                 self.pulldownTipLabel.frame = rect.offsetBy(dx: 0, dy: -3 * height)
@@ -154,7 +166,7 @@ class HomeTableViewController: VisitorTableViewController {
     }()
     ///照片查看专场动画代理
     private lazy var photoBrowsweAnimator: PhotoBrowserAnimator = PhotoBrowserAnimator()
-    
+    private lazy var headerView = WBrefreshControl()
 }
 
 //MARK: - 数据源方法
@@ -173,11 +185,11 @@ extension HomeTableViewController {
         if indexPath.row == listViewModel.statusList.count - 1 && !pullupView.isAnimating {
             pullupView.startAnimating()
             //上拉刷新数据
-            loadData()
+            loadData(offsetY: 0)
         }
         //设置cell的代理
         cell.cellDelegate = self
-        cell.contentView.layoutIfNeeded()
+//        cell.contentView.layoutIfNeeded()
         return cell
     }
     /**
@@ -201,16 +213,18 @@ extension HomeTableViewController {
     }
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
 
-        
-        if velocity.y < 0 && tableView.contentOffset.y < -100{
-//            print("velocity.y + \(velocity.y)")
-            loadData()
+//        print("tableView.contentOffset.y + \(tableView.contentOffset.y)")
+//        print("velocity.y + \(velocity.y)")
+        if velocity.y < 0 && tableView.contentOffset.y < -tableView.tableHeaderView!.bounds.height {
+//            print("tableView.contentOffset.y + \(tableView.contentOffset.y)")
+            loadData(offsetY: -tableView.contentOffset.y)
 
         }
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        print("\(indexPath.row) : \(listViewModel.statusList[indexPath.row].rowHeight)")
     }
+    
 }
 
 //MARK: - 定时器

@@ -16,10 +16,10 @@ class StatusPictureView: UICollectionView {
     ///微博视图模型
     var viewModel: StatusViewModel? {
         didSet {
-            //修改当前视图的大小
-            sizeToFit()
             //刷新数据 如果不刷新，后续的collectionView一旦被复用，就不调用数据源方法
             reloadData()
+            //修改当前视图的大小
+            sizeToFit()
         }
     }
     //sizetofit调用下面的函数
@@ -82,11 +82,11 @@ extension StatusPictureView: UICollectionViewDataSource, UICollectionViewDelegat
 extension StatusPictureView: PhotoBrowserPresentDelegate {
     func photoBrowserPresentFromRect(indexPath: IndexPath) -> CGRect {
         //根据indexPath获取用户选择的cell
-        let cell = cellForItem(at: indexPath)!
+        let cell = cellForItem(at: indexPath)
         //通过cell知道cell对应在屏幕上的准确位置
         //在不同的视图之间坐标系的转换 由self的父视图进行转换
         //由collectionview将cell的frame位置转换成keywindow对应的frame位置
-        let rect = convert(cell.frame, to: UIApplication.shared.windows.first{$0.isKeyWindow})
+        let rect = convert(cell!.frame, to: UIApplication.shared.windows.first{$0.isKeyWindow})
         //测试
 //        let iv = imageViewForPresent(indexPath: indexPath)
 //        iv.frame = rect
@@ -155,14 +155,20 @@ extension StatusPictureView {
             //问：sdwebImage是如何设置缓存文件的文件名的 对完成url字符串的‘MD5’
             if let key = viewModel?.thumbnailUrls?.first?.absoluteString {
                 if let image = SDImageCache.shared.imageFromCache(forKey: key, options: [.preloadAllFrames, .queryMemoryData], context: nil) {
+                    
                     size = image.size
 
                 }
+                
             }
             //过窄处理 针对长图 --- 改变条件进行测试
-            size.width = size.width < 40 ? 40 : size.width
+            if size.width < 100 {
+                let w: CGFloat = 100
+                let h = size.height / size.width * w
+                size = CGSize(width: w, height: h)
+            }
             //过宽处理
-            if size.width > 300 {
+            if size.width > 300 || size.width > size.height {
                 let w: CGFloat = 300
                 let h = size.height / size.width * w
                 size = CGSize(width: w, height: h)
@@ -183,7 +189,7 @@ extension StatusPictureView {
         let row = CGFloat((count - 1) / Int(rowCount) + 1)
         let h = row * itemWidth + (row - 1) * StatusPictureViewItemMargin
         let w = rowCount * itemWidth + (rowCount - 1) * StatusPictureViewItemMargin + 1
-        
+
         return CGSize(width: w, height: h)
     }
 }

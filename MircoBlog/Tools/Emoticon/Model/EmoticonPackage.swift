@@ -52,7 +52,7 @@ class EmoticonPackage: NSObject {
             return
         }
         
-        print(count)
+//        print(count)
         //添加空白表情
         for _ in count ..< 20 {
             emoticons.append(Emoticon(isEmpty: true))

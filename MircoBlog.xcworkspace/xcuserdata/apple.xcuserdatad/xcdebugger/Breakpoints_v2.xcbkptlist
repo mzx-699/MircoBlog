@@ -3,4 +3,22 @@
    uuid = "84269F80-343E-482F-8BC5-1C734647025E"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8DA494FF-4D0B-420A-9635-B9F2BF12E87D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MircoBlog/Classes/View(&#x89c6;&#x56fe;&#x548c;&#x63a7;&#x5236;&#x5668;)/Home/StatusCell/StatusPictureView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
+            landmarkName = "calcViewSize()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

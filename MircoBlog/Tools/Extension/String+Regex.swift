@@ -19,7 +19,7 @@ extension String {
         let regex = try! NSRegularExpression(pattern: pattern, options: [])
         //firstMatch 在指定字符串中，查找第一个和pattern符合的字符串
         guard let result = regex.firstMatch(in: self, options: [], range: NSRange(location: 0, length: self.count)) else {
-            print("没有匹配内容")
+//            print("没有匹配内容")
             return nil
         }
         let str = self as NSString

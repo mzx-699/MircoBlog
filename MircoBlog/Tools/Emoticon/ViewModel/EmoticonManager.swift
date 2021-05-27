@@ -91,7 +91,7 @@ class EmoticonManager {
         for id in array as! [String] {
             loadInfoPlist(id: id)
         }
-        print(packages)
+//        print(packages)
     }
     
     /// 加载每一个id目录下的info.plist

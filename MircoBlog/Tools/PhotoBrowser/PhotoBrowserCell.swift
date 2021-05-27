@@ -78,6 +78,7 @@ class PhotoBrowserCell: UICollectionViewCell {
         scrollView.contentInset = .zero //缩放之后的居中
         scrollView.contentOffset = .zero //决定scrollview的偏移位置
         scrollView.contentSize = .zero // 滚动范围
+        
     }
     /// 设置imageView的位置 长短图处理
     /// - Parameter image: image
@@ -140,12 +141,16 @@ class PhotoBrowserCell: UICollectionViewCell {
         scrollView.delegate = self
         scrollView.minimumZoomScale = 0.5
         scrollView.maximumZoomScale = 2.0
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.showsVerticalScrollIndicator = false
         
         //添加手势识别
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapImage))
         //imageviwe默认不支持用户交互
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(tap)
+        
+        
         
     }
     //MARK: - 懒加载控件
